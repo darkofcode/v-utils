@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.inputWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.input {
+  width: 100%;
+}
+@media (max-width: 600px) {
+  .mWrapper {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .label {
+    margin-top: 12px;
+  }
+  .invisible {
+    display: none;
+  }
+}
