@@ -1,0 +1,27 @@
+@import "../../uv-commons/styles/variable.scss";
+.userWrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .imgWrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 7px;
+    .userBadge {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+    .userAll {
+      font-size: 0.75rem;
+    }
+
+    .userName {
+      color: $col-red;
+    }
+  }
+}
