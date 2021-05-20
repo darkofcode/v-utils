@@ -1,0 +1,26 @@
+@import "./variable.scss";
+
+.StripeElement {
+  display: block;
+  margin: 0;
+  max-width: 500px;
+  padding: 10px 14px;
+  font-size: 1em;
+  font-family: "Source Code Pro", monospace;
+  border: 0;
+  outline: 0;
+  border-radius: 0;
+  background: transparent;
+  border-bottom: 1.5px solid $col-grey;
+  width: calc(100% - 123px);
+}
+
+.StripeElement--focus {
+  border-bottom: 1.5px solid $col-green-light;
+}
+
+@media (max-width: 600px) {
+  .StripeElement {
+    width: 100% !important;
+  }
+}

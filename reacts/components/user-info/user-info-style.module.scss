@@ -1,4 +1,3 @@
-@import "../../uv-commons/styles/variable.scss";
 .userWrapper {
   display: flex;
   justify-content: flex-start;
@@ -21,7 +20,7 @@
     }
 
     .userName {
-      color: $col-red;
+      color: rgb(202, 17, 17);
     }
   }
 }

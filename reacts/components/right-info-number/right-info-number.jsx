@@ -1,5 +1,5 @@
 import React from "react";
-import { round } from "../../uv-commons/js-functions/numbers/round";
+import { round } from "../../../js-functions/numbers/round";
 import uvStyle from "./style.module.scss";
 
 export default function RightInfoNumber({

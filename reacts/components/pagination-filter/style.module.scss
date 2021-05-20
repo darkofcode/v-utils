@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-left: 12px;
+}
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  .select {
+    min-width: 224px;
+    transform: scale(0.75);
+    position: relative;
+    left: -27px;
+  }
+  .switchWrapper {
+    position: relative;
+    left: -39px;
+    width: 97px;
+    .label {
+      font-size: 0.8em;
+    }
+    .switch {
+      transform: scale(0.54);
+      position: relative;
+      left: -9px;
+    }
+  }
+  .icon {
+    transform: scale(0.35);
+    // cursor: pointer;
+  }
+}
+@media (max-width: 600px) {
+  .iconWrapper {
+    .select {
+      min-width: 142px;
+    }
+  }
+}

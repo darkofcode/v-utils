@@ -1,0 +1,17 @@
+.pagination {
+  display: flex;
+  align-items: center;
+}
+
+.naked {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  text-align: center;
+  width: 1.5rem;
+  font-size: 0.8rem;
+}
+.naked:focus,
+.naked:active {
+  outline: none;
+}

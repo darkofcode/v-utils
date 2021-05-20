@@ -1,9 +1,8 @@
 import React from "react";
 import uvStyle from "./user-info-style.module.scss";
 import truncate from "lodash/truncate";
-import defaultSize from "../config/config";
-import Badge from "../custom-icon/badge";
-import config from "../config/config";
+import Badge from "uv-utils/reacts/components/mui-custom-icon/badge";
+import config from "uv-env/config";
 
 export default function UserInfoComponent({
   photoUrl,
@@ -42,6 +41,6 @@ export default function UserInfoComponent({
 }
 
 const getName = (name, isUppercase) => {
-  const n = truncate(name, { length: defaultSize.length.name });
+  const n = truncate(name, { length: config.length.name });
   return isUppercase ? n.toUpperCase() : n;
 };

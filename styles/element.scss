@@ -1,23 +1,81 @@
+@import "./variable.scss";
+
+.form-control {
+  height: 36.8px;
+  padding: 0 0.6rem;
+  border: none;
+  border-radius: 0;
+  background-color: $col-grey;
+  border-bottom: 1.5px solid $col-grey;
+  // box-shadow: 0 1px 5px -2px rgba(0, 0, 0, 0.2);
+  outline: none;
+  &:focus {
+    // box-shadow: 0 1px 5px -2px #42a5f5;
+    border-bottom: 1.5px solid $col-green-light;
+  }
+}
+.no-focus {
+  & :focus {
+    border-bottom: none !important;
+    outline: none !important;
+  }
+}
+.input-error {
+  border-bottom: 2px solid $col-red !important;
+}
+.label-error {
+  color: $col-red;
+  font-size: 0.9rem;
+}
+.card {
+  border-radius: 4px !important;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px,
+    rgba(0, 0, 0, 0.12) 0px 1px 8px 0px;
+}
 .shadow {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px,
     rgba(0, 0, 0, 0.12) 0px 1px 8px 0px;
 }
-.font-proper,
-.font-title,
-.font-capitalize {
-  text-transform: capitalize;
+.underline {
+  border-bottom: 1px solid rgb(173, 173, 173);
 }
-.pointer {
+.underline-thick {
+  border-bottom: 1.5px solid rgb(197, 197, 197);
+}
+.break {
+  margin: 11px 0;
+}
+.preserve {
+  white-space: pre-wrap;
+}
+.naked-button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
   cursor: pointer;
+  outline: inherit;
 }
-.cursor-normal {
-  cursor: initial !important;
+.inline-block {
+  display: inline-block;
 }
-.flex {
-  display: flex;
+.show-on-mobile {
+  display: none;
 }
-.active-link {
-  color: var(--colYellow);
+.inputDisabled {
+  pointer-events: none;
+  border-bottom: 1px dotted;
+}
+.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.no-pointer-event {
+  pointer-events: none;
+}
+.hidden {
+  visibility: hidden;
 }
 
 @media (max-width: 600px) {

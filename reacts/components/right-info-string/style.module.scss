@@ -1,9 +1,7 @@
-@import "../../uv-commons/styles/variable.scss";
-
 .wrapper {
   display: flex;
   flex-direction: column;
-  color: $col-yellow;
+  color: var(--colYellow);
 }
 .info {
   text-transform: uppercase;

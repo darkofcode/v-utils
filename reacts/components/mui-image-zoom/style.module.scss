@@ -1,0 +1,19 @@
+.zoomWrapper {
+  // height: calc(100vh - 142px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  overflow: hidden;
+  .zoom {
+    height: 100%;
+  }
+  .iconWrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    .icon {
+      cursor: pointer;
+    }
+  }
+}

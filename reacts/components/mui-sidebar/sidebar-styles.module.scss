@@ -1,22 +1,17 @@
-.drawerWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
 .drawerList {
   position: relative;
   height: 100%;
   width: 100%;
-  padding-top: 0px !important;
+}
+.dragWrapper {
+  position: absolute;
+  top: 50%;
 }
 .dragBg {
   position: absolute;
   top: 0;
 }
-.handleWrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 2px;
-  background-color: #364f7c;
+.dragHandle {
+  position: absolute;
+  top: 50%;
 }

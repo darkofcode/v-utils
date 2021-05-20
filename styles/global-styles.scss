@@ -1,0 +1,82 @@
+@import "./sizing-styles.scss";
+@import "./bootstrap-reboot.scss";
+@import "./variable.scss";
+@import "./element.scss";
+@import "./material-ui-styles.scss";
+@import "./chart-js-override.scss";
+@import "./print.scss";
+@import "./stripe-reboot.scss";
+// color
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+// end color
+
+// scroll bar
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+// text
+.text-center {
+  text-align: center;
+}
+
+// grid
+.flex {
+  display: flex;
+}
+.flex-row-center {
+  align-items: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-middle {
+  justify-content: center;
+  align-items: center;
+}
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+.flex-space-between {
+  justify-content: space-between;
+}
+.flex-start {
+  justify-content: flex-start;
+}
+.flex-end {
+  justify-content: flex-end;
+}
+
+.pointer {
+  cursor: pointer;
+}
+.cursor-normal {
+  cursor: initial !important;
+}

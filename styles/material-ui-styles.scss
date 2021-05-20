@@ -1,0 +1,69 @@
+@import "./variable.scss";
+
+// .MuiInput-underline:after {
+//   border-bottom-color: $col-green !important;
+//   border-width: 2px !important;
+// }
+// .MuiInput-underline:before {
+//   transition: none !important;
+//   border-bottom: none !important;
+// }
+.MuiInput-underline.Mui-error:after {
+  border-color: $col-red !important;
+  border-width: 2px !important;
+}
+.MuiInput-root {
+  height: 36.8px;
+}
+.MuiList-root {
+  max-height: 320px !important;
+}
+.MuiMenu-list {
+  outline: none !important;
+}
+
+.MuiInputBase-input {
+  height: auto !important;
+}
+.MuiDialogActions-root {
+  padding: 8px 18px 18px 8px !important;
+}
+.MuiList-padding {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.MuiListItem-root.Mui-selected {
+  background-color: rgba(0, 0, 0, 0.25) !important;
+}
+
+.MuiListItem-button:hover,
+.MuiListItem-root.Mui-selected:hover {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+.MuiSelect-icon {
+  color: inherit !important;
+}
+.MuiButton-outlined {
+  border: 1px solid #9f9f9f !important;
+}
+.MuiInputBase-root {
+  font-size: inherit !important;
+}
+.MuiDialog-paper {
+  overflow-y: unset !important;
+}
+@media print {
+  .MuiDialog-paper {
+    width: 100vw !important;
+    max-width: 100vh !important;
+    margin: 0 !important;
+  }
+  .MuiIconButton-root {
+    display: none !important;
+    width: 0 !important;
+  }
+  .MuiAutocomplete-inputRoot {
+    padding-right: 0.6rem !important;
+  }
+}

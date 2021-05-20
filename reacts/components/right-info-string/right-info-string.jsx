@@ -1,5 +1,6 @@
 import React from "react";
 import uvStyle from "./style.module.scss";
+import { colors } from "../mui-config/colors";
 
 export default function RightInfoString({
   info,
@@ -21,6 +22,11 @@ export default function RightInfoString({
       onFooterClick();
     }
   };
+  const getColor = () => {
+    const _color = colors[color];
+    // console.log(`from right info`, { _color });
+    return _color ? _color : "rgb(48 185 172)";
+  };
   return (
     <div
       onClick={() => onClick()}
@@ -30,7 +36,7 @@ export default function RightInfoString({
       <div onClick={handleInfoClick} className={` ${uvStyle.info} ${onInfoClick ? "pointer" : ""} `}>
         {info}
       </div>
-      <div className={`${uvStyle.underline} `} style={{ backgroundColor: color ? color : "rgb(48 185 172)" }}></div>
+      <div className={`${uvStyle.underline} `} style={{ backgroundColor: getColor() }}></div>
       <div onClick={handleFooterClick} className={` ${uvStyle.footer} ${onFooterClick ? "pointer" : ""}`}>
         {footer}
       </div>
