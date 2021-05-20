@@ -11,5 +11,5 @@ function getRandomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// console.log(`from rnd:\n`, getRandomInteger(131512312, 51231231511241));
+// console.log(`from rnd:\n`, getRandomInteger(1311212, 513123141));
 export { getRandomInteger };
