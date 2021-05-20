@@ -1,0 +1,7 @@
+@import "../../../uv-commons//styles/variable.scss";
+.textArea {
+  &:focus {
+    // box-shadow: 0 1px 5px -2px #42a5f5;
+    border-bottom: 1.5px solid $col-green-light;
+  }
+}

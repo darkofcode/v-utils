@@ -1,0 +1,13 @@
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  position: absolute;
+  left: 0;
+}
+.animation {
+  transition: ease-in-out;
+  transition-duration: 300ms;
+}

@@ -1,0 +1,42 @@
+@import "../../uv-commons/styles/variable.scss";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.digitWrapper {
+  display: flex;
+  align-items: flex-end;
+  color: $col-yellow;
+}
+.pre {
+  font-size: 1.53em;
+  position: relative;
+  top: 4px;
+}
+.post {
+  font-size: 0.7em;
+  position: relative;
+  top: -1px;
+}
+.letter {
+  font-size: 0.8em;
+  position: relative;
+  // top: -2px;
+}
+.underline {
+  width: 100%;
+  height: 2px;
+}
+.red {
+  background-color: #f83131;
+}
+.brown {
+  background-color: #a66767;
+}
+.greenIsh {
+  background-color: #65e1c2;
+}
+.green {
+  background-color: #2cba55;
+}

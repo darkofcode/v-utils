@@ -1,0 +1,64 @@
+$col-white: rgb(219, 219, 219);
+$col-yellow: rgb(186, 160, 80);
+$col-grey: #cecece;
+$col-green: #19857b;
+$col-green-light: #54bcb2;
+$col-red: #e17b7b;
+$col-success: #19857b;
+$col-error: #bb3232;
+$col-warning: #936232;
+$col-info: rgb(38, 97, 143);
+$col-black: #383838;
+$col-dark-green: rgba(12, 107, 105, 0.96);
+
+$opacity: 10%;
+.btnSuccess {
+  background-color: $col-success !important;
+  &:hover {
+    background-color: darken($col-success, $opacity) !important;
+  }
+}
+.btnError {
+  background-color: $col-error !important;
+  &:hover {
+    background-color: darken($col-error, $opacity) !important;
+  }
+}
+.btnWarning {
+  background-color: $col-warning !important;
+  &:hover {
+    background-color: darken($col-warning, $opacity) !important;
+  }
+}
+.btnInfo {
+  background-color: $col-info !important;
+  &:hover {
+    background-color: darken($col-info, $opacity) !important;
+  }
+}
+.btnWhite {
+  background-color: $col-grey !important;
+  color: $col-black !important;
+  &:hover {
+    background-color: darken($col-grey, $opacity) !important;
+  }
+}
+.btnWrapper {
+  position: relative;
+  display: inline-block;
+  .btn {
+    color: inherit !important;
+    width: 100%;
+    &:disabled {
+      color: rgba(0, 0, 0, 0.26) !important;
+      background-color: rgba(0, 0, 0, 0.12) !important;
+    }
+  }
+
+  .loading {
+    position: absolute;
+    top: calc(50% - 10px);
+    left: calc(50% - 10px);
+    color: #c1c1c1 !important;
+  }
+}

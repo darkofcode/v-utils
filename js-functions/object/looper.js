@@ -11,7 +11,7 @@ import { isObject } from "./is-obj";
  */
 const looper = (object, keyValFunction) => {
   const repeater = (obj) => {
-    let newObj = {};
+    let newObj = Array.isArray(obj) ? [] : {};
     if (!isObject(obj) && !Array.isArray(obj)) {
       const { val: finalVal } = keyValFunction("a", obj);
       return finalVal;
@@ -44,33 +44,32 @@ export { looper };
 // const t = {
 //   a1: 1,
 //   a2: "str",
-//   a3: undefined,
-//   a4: null,
-//   a5: NaN,
-//   a6: new Date(),
-//   a7: false,
-//   a8: function () {
-//     return "time";
-//   },
-//   a9: {
-//     a1: 1,
-//     a2: {
-//       a1: 1,
-//       a2: false,
-//       a3: {
-//         d: 1,
+//   a3: { undefined: undefined },
+//   null: null,
+//   nam: NaN,
+//   date: new Date(),
+//   boolean: false,
+//   arr: [
+//     {
+//       function: function () {
+//         return "time";
 //       },
-//       a4: new Date(),
 //     },
-//     a3: false,
+//   ],
+//   file: {
+//     a: new File(["foo"], "foo.txt", {
+//       type: "text/plain",
+//     }),
 //   },
-//   a10: {
-//     a1: 1,
-//   },
+//   math: Math.LN2,
+//   infi: { infinite: Infinity },
+//   arr2: [{ reg: /regex/ }],
+//   class: class C {},
+//   sym: Symbol(),
 // };
 // const tf = (key, val) => {
-//   return { key: key.toUpperCase(), val: val + 1 };
+//   return { key: key.toUpperCase(), val: val };
 // };
-// const r = looper({ a: 1, b: 2, c: 3 }, tf);
+// const r = looper(t, tf);
 
 // console.trace(`result`, r);

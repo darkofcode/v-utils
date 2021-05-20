@@ -1,0 +1,22 @@
+@import "../../uv-commons/styles/variable.scss";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  color: $col-yellow;
+}
+.info {
+  text-transform: uppercase;
+  font-size: 1.1em;
+}
+.footer {
+  text-transform: lowercase;
+  font-size: 0.8em;
+  // text-align: end;
+  display: flex;
+  justify-content: flex-end;
+}
+.underline {
+  width: 100%;
+  height: 2.3px;
+}
