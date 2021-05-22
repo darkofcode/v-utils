@@ -68,6 +68,15 @@
   color: inherit;
   -moz-appearance: textfield;
 }
+.react-date-picker__inputGroup__input::placeholder {
+  color: inherit !important;
+}
+.react-date-picker__inputGroup__input::-ms-input-placeholder {
+  color: inherit !important;
+}
+.react-date-picker__inputGroup__input::-webkit-input-placeholder {
+  color: inherit !important;
+}
 .react-date-picker__inputGroup__input::-webkit-outer-spin-button,
 .react-date-picker__inputGroup__input::-webkit-inner-spin-button {
   -webkit-appearance: none;
