@@ -10,7 +10,7 @@ function shuffle(str) {
   return a.join("");
 }
 
-// const a = "123456789ab";
+// const a = "xnbcgxhpbvvqgkrtqsrpfmwmjljkdlshcntwfd";
 // const b = shuffle(a);
 // console.log(`from a:\n`, { a, b });
 

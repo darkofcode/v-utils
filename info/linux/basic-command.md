@@ -86,6 +86,8 @@ with **scp**, we can copy a file or directory
   > scp -P 2322 file.txt remote_username@10.10.0.2:/home/zmenka/directory
 - ex: with specific ssh public key
   > scp -i pathPublicSShKey sourceDirectory remoteDir@13.1412.1:/home/zmenka/app
+- ex: multiple
+  > scp foo.txt bar.txt your_username@remotehost.edu:~
 
 ## view current directory
 
@@ -159,9 +161,10 @@ view current directory file size include sub directory
 ## unzip to directory
 
 > unzip filename.zip -d /path/to/directory
-> unzip -P passwordForZip -q -d /path/to/directory
+> unzip -P passwordForZip -q fileName.zip -d /path/to/directory
 > -P for password archive
 > -q to suppress result message
+> -d directory path
 
 ## view sys memory info
 
