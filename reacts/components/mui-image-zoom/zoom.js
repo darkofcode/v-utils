@@ -1,30 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import uvStyle from "./style.module.scss";
-import Modal from "uv-utils/reacts/components/mui-modal/dynamic";
+import Modal from "../mui-modal/dynamic";
 import IconPlus from "@material-ui/icons/ZoomInOutlined";
 import IconMinus from "@material-ui/icons/ZoomOutOutlined";
-import { useState } from "react";
-/**
-  open: boolean;
-  onClose: Function;
-  title?: string;
-  maxWidth?: "lg" | "md" | "sm" | "xl" | "xs" | false;
-  component: ReactNode;
-  isFullScreen?: boolean;
- */
-export default function ImageZoom({ title, isFullScreen, imgSrc, maxWidth, onClose, open }) {
-  const [imgHeight, setImgHeight] = useState(142);
-  const zoomFactor = 15;
+import Draggable from "react-draggable";
+
+export default function ImageZoom({ title, isFullScreen, loading, imgSrc, maxWidth, onClose, open, Footer }) {
+  const [imgScale, setImgScale] = useState(1);
+
+  const zoomFactor = 0.03;
   const handleZoomPlus = () => {
-    setImgHeight((pre) => pre - zoomFactor);
+    setImgScale((pre) => pre + zoomFactor);
   };
   const handleZoomMinus = () => {
-    setImgHeight((pre) => pre + zoomFactor);
+    setImgScale((pre) => pre - zoomFactor);
   };
   const handleScroll = (e) => {
-    const delta = e.deltaY > 0 ? zoomFactor : -zoomFactor;
-    setImgHeight((pre) => pre + delta);
+    const delta = e.deltaY > 0 ? -zoomFactor : +zoomFactor;
+    setImgScale((pre) => pre + delta);
   };
+
   return (
     <Modal
       maxWidth={maxWidth}
@@ -33,13 +28,33 @@ export default function ImageZoom({ title, isFullScreen, imgSrc, maxWidth, onClo
       title={title}
       onClose={() => onClose()}
       component={
-        <div onWheel={handleScroll} className={uvStyle.zoomWrapper} style={{ height: `calc(100vh - ${imgHeight}px)` }}>
-          <div className={uvStyle.iconWrapper}>
-            <IconPlus className={uvStyle.icon} onClick={handleZoomPlus} />
-            <IconMinus className={uvStyle.icon} onClick={handleZoomMinus} />
-          </div>
-          <img className={`${uvStyle.zoom}`} src={imgSrc} alt="attachment" />
-        </div>
+        <>
+          {loading ? (
+            <div>loading...</div>
+          ) : (
+            <div className={uvStyle.wrapper}>
+              <div onWheel={handleScroll}>
+                <div className={uvStyle.iconWrapper}>
+                  <IconPlus className={uvStyle.icon} onClick={handleZoomPlus} />
+                  <IconMinus className={uvStyle.icon} onClick={handleZoomMinus} />
+                </div>
+
+                <div className={uvStyle.zoomWrapper}>
+                  <Draggable>
+                    <div className={`${uvStyle.zoom}`}>
+                      <img
+                        style={{ pointerEvents: "none", transform: `scale(${imgScale})` }}
+                        src={imgSrc}
+                        alt="attachment"
+                      />
+                    </div>
+                  </Draggable>
+                </div>
+              </div>
+              <div className={uvStyle.footerWrapper}>{Footer}</div>
+            </div>
+          )}
+        </>
       }
     />
   );
