@@ -6,16 +6,16 @@
 .zoomWrapper {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   flex-direction: column;
   overflow: hidden;
   height: calc(100vh - 200px);
   margin: 6px auto;
   position: relative;
   .zoom {
-    height: 100%;
-    width: auto;
-    position: absolute;
+    // height: 100%;
+    // width: auto;
+    // position: absolute;
     cursor: move;
   }
 }
@@ -35,4 +35,10 @@
   box-shadow: 2px -3px 3px 0px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 2px -3px 3px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: 2px -3px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 600px) {
+  .zoomWrapper {
+    height: calc(100vh - 250px) !important;
+  }
 }

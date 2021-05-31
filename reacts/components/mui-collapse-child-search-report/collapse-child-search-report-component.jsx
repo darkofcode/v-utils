@@ -22,13 +22,17 @@ export default function CollapseChild({
   onSearchSubmit,
   onAddList,
   onImportClick,
+  searchPlaceholders = [],
   ...otherProps
 }) {
   const [inputStyle, setInputStyle] = useState({ width: "0px", opacity: 0, right: "0px" });
   const [input, setInput] = useState("");
   const [openSnack, setOpenSnack] = useState("");
   const dateFormat = propDateFormat;
-  const placeholders = [dateFormat, "123", "any text", "123 - 145", `${dateFormat} - ${dateFormat}`];
+  const placeholders =
+    searchPlaceholders.length > 0
+      ? searchPlaceholders
+      : [dateFormat, "123", "any text", "123 - 145", `${dateFormat} - ${dateFormat}`];
   const handleSearchClick = () => {
     setInput("");
     if (inputStyle.opacity === 1) {

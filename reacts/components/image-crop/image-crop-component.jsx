@@ -22,8 +22,8 @@ const ImageCrop = ({
   imgMinWidth = "450px",
   ...otherProps
 }) => {
-  const setCropOption = isSquareImage ? { ...cropOption, aspect: 16 / 16 } : cropOption;
-  const [crop, setCrop] = useState(setCropOption);
+  const getCropOption = () => (isSquareImage ? { ...cropOption, aspect: 16 / 16 } : cropOption);
+  const [crop, setCrop] = useState(getCropOption());
   // const [imgData, setImgData] = useState(null);
 
   const handleImageLoaded = (image) => {
@@ -47,6 +47,7 @@ const ImageCrop = ({
   useEffect(() => {
     // setImgData(imageFile);
     onImageLoaded(imageFile);
+    setCrop(getCropOption());
   }, [imageFile]); //eslint-disable-line
 
   return (

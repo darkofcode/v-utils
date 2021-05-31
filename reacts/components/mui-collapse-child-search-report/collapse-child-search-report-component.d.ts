@@ -15,6 +15,7 @@ export interface Props {
   wrapperPadding?: string;
   loading?: boolean;
   dateFormat: string;
+  searchPlaceholders: string[];
 }
 
 declare const ReactInterface: React.ComponentType<Props>;

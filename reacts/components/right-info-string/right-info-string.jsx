@@ -25,7 +25,7 @@ export default function RightInfoString({
   const getColor = () => {
     const _color = colors[color];
     // console.log(`from right info`, { _color });
-    return _color ? _color : "rgb(48 185 172)";
+    return _color ? _color : color;
   };
   return (
     <div
