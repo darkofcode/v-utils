@@ -30,6 +30,11 @@ ex: remove folder name "test" and all it file
 > rm -rf test
 > rm -R test
 
+remove everything except
+
+> rm -v !("fileName")
+> rm -v !("file1" | "file2")
+
 ## view as text file, short file
 
 > cat ~/.ssh/authorized_keys
@@ -61,6 +66,8 @@ press q to quit
    > ls -la
 3. list with more info
    > ls -l
+4. list with grep; list all in verticals view and show only file/folder contain 'win'
+   > ls -1 | grep 'win'
 
 ## secure copy between local and remote (scp) with ssh protocol
 
