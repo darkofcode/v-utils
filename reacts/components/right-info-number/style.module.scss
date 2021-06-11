@@ -38,3 +38,10 @@
 .green {
   background-color: #2cba55;
 }
+
+@media (max-width: 600px) {
+  .wrapper {
+    max-width: 90px;
+    overflow: hidden;
+  }
+}

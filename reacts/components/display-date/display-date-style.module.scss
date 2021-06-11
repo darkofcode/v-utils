@@ -30,6 +30,7 @@
     opacity: 0.8;
   }
 }
+
 .userBadge {
   position: absolute;
   bottom: 0;
@@ -38,4 +39,11 @@
 
 .otherInfo {
   font-size: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .infoWrapper {
+    max-width: 130px;
+    overflow: hidden;
+  }
 }

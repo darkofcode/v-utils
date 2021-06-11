@@ -1,5 +1,11 @@
 import { useState } from "react";
 
+/**
+ *
+ * @param {string} key
+ * @param {any} initValue
+ * @returns {[React.ReducerState,React.SetStateAction]}
+ */
 function useLocalStorage(key, initValue) {
   const storage = localStorage;
   const [doc, setDoc] = useState(getLocal(key, initValue));
