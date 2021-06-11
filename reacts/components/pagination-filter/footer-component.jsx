@@ -4,7 +4,7 @@ import Filter from "../mui-custom-icon/filter";
 import uvStyle from "./style.module.scss";
 import SelectObj from "../mui-auto-complete-simple";
 
-export default function FooterComponent({ onChange, options = [], initPage = 1 }) {
+export default function FooterComponent({ onChange, options = [], initPage = 1, showFilter = true }) {
   const [filter, setFilter] = useState(null);
   const [page, setPage] = useState(initPage);
 
@@ -20,15 +20,19 @@ export default function FooterComponent({ onChange, options = [], initPage = 1 }
   return (
     <div className={uvStyle.wrapper}>
       <div className={uvStyle.iconWrapper}>
-        <Filter className={uvStyle.icon} />
-        <SelectObj
-          className={uvStyle.select}
-          showCheckbox={false}
-          variant="naked"
-          value={filter}
-          onChange={handleSelectChange}
-          options={options}
-        />
+        {showFilter && (
+          <>
+            <Filter className={uvStyle.icon} />
+            <SelectObj
+              className={uvStyle.select}
+              showCheckbox={false}
+              variant="naked"
+              value={filter}
+              onChange={handleSelectChange}
+              options={options}
+            />
+          </>
+        )}
       </div>
       <Pagination current={page} onPageChange={handlePageChange} />
     </div>

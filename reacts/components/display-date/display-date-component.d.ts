@@ -20,6 +20,7 @@ export interface Props {
   dateInfo?: { top: string; middle: string; bottom: string };
   isMainInfoUppercase?: boolean;
   onClick: Function;
+  truncateLength?: number;
 }
 
 declare const ComponentName: React.ComponentType<Props>;

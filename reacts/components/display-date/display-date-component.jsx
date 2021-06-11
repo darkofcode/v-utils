@@ -25,6 +25,7 @@ export default function DisplayDateComponent({
   dateInfo,
   isMainInfoUppercase = true,
   onClick,
+  truncateLength = 18,
 }) {
   dateStr = dateStr ? dateStr : new Date();
   const date = isEmpty(dateInfo) ? new Date(dateStr) : dateInfo;
@@ -57,8 +58,10 @@ export default function DisplayDateComponent({
         {!!badgeColor && <Badge className={` ${uvStyle.userBadge} `} style={{ color: badgeColor, ...badgeStyle }} />}
       </div>
 
-      <div>
-        <div style={{ color: mainInfoColor, ...mainStyle }}>{getMainInfo(mainInfo, isMainInfoUppercase)}</div>
+      <div className={uvStyle.infoWrapper}>
+        <div style={{ color: mainInfoColor, ...mainStyle }}>
+          {getMainInfo(mainInfo, isMainInfoUppercase, truncateLength)}
+        </div>
         {!!otherInfos.length && (
           <>
             {otherInfos.map((info, index) => (
@@ -73,7 +76,7 @@ export default function DisplayDateComponent({
   );
 }
 
-const getMainInfo = (mainInfo, isUppercase) => {
-  const n = truncate(mainInfo, { length: 18 });
+const getMainInfo = (mainInfo, isUppercase, truncateLength) => {
+  const n = truncate(mainInfo, { length: truncateLength });
   return isUppercase ? n.toUpperCase() : n;
 };

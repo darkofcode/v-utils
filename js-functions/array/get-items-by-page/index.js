@@ -1,4 +1,14 @@
 import { getPageRange } from "../get-page-range";
+
+/**
+ *
+ * @param {any[]} arr
+ * @param {number} page
+ * @param {number} maxItem
+ * @param {boolean} isReverse
+ * @default {{isReverse:false}}
+ * @returns {any[]}
+ */
 const getItemsByPage = (arr, page, maxItem, isReverse = false) => {
   const { from, to } = getPageRange(page, maxItem);
   if (!isReverse) {
