@@ -12,6 +12,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  scrollbar-width: thin;
 }
 // end color
 
@@ -24,7 +25,7 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #0000004d;
 }
 
 /* Handle */

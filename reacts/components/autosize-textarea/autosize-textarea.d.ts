@@ -8,6 +8,10 @@ export interface Props {
   style?: any;
   value: string;
   resize: string;
+  rows: number;
+  onChange: () => VoidFunction;
+  minHeight: string;
+  spellCheck: boolean;
 }
 
 declare const ReactInterface: React.ComponentType<Props>;

@@ -34,6 +34,7 @@ const useStyles = (variant) => {
   }
   return makeStyles({ root: style });
 };
+
 const AutoSizeTextArea = ({
   className = "",
   variant = "naked",
@@ -58,6 +59,7 @@ const AutoSizeTextArea = ({
   const getMinHeight = minHeight ? minHeight : "36.8px";
   // const elm = useRef(null);
   useEffect(() => {
+    // if (!mounted) return;
     if (rows) return setRows(rows);
     let countRows = v ? v.split("\n").length : 0;
     countRows = countRows + 1;
