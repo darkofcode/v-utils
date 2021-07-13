@@ -40,7 +40,11 @@ where bash script in /home/zmenka/kinodes/back/admin/run-backup.sh
 0 5 * * 5 rm -rf /tmp/*
 
 # Backup images to Google Drive every night at midnight
-0 0 * * * rsync -a ~/Pictures/ ~/Google\ Drive/Pictures/
+0 0 * * * rsync -a ~/Pictures/ ~/Google\ Drive/Pictures
+
+# auto renew certificates every 2 months
+0 1 1 */2 * certbot renew -n -q
+
 ```
 
 ## bash script in run-backup.sh
