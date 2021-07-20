@@ -172,6 +172,21 @@ module.exports = counterUser;
 select \* from card
 where to_tsvector(name || ' ' || artist || ' ' || text) @@ to_tsquery('Avon');
 
+to_tsvector(columnName)
+-meaning that psql will create index on the fly before search
+-useing this way is slow, so we need to create index first
+
+```javascript
+await knex.raw(` 
+    ALTER TABLE acc_payable ADD CONSTRAINT check_left_payable check ("left" >= 0)
+    `);
+```
+
+then now we could perform full text search without to_tsvector function
+
+select \* from card
+where textsearchable_index_col @@ to_tsquery('Avon');
+
 ### trigger
 
 ```javascript
@@ -263,4 +278,12 @@ CREATE TRIGGER tr_hrm_absence_on_approved
 
 ```javascript
 tbl.decimal("price", 14, 2).notNullable().defaultTo(0);
+```
+
+### raw
+
+```javascript
+await knex.raw(` 
+    ALTER TABLE acc_payable ADD CONSTRAINT check_left_payable check ("left" >= 0)
+    `);
 ```

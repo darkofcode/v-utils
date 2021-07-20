@@ -30,6 +30,17 @@ vim is module editor
 
 > :set number
 
+set number by default
+[ref](https://vim.fandom.com/wiki/Open_vimrc_file)
+
+Add set number to your .vimrc file in your home directory.
+
+> vi ~/.vimrc
+
+add the following line
+
+> set number
+
 ## cursor
 
 | cmd    |                      desc                      |

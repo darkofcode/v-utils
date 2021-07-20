@@ -9,8 +9,9 @@ import { get } from "../../../js-functions/object/get";
 import { findIndexOfCollection as findIndex } from "../../../js-functions/collection/find-index";
 // import PropTypes from "prop-types";
 
-import { colors } from "../mui-config/colors";
+import config from "../mui-config/config";
 import Hidden from "@material-ui/core/Hidden";
+import { sortCollection } from "../../../js-functions/collection/sort-collection";
 
 // const filter = createFilterOptions();
 
@@ -63,20 +64,25 @@ const useStyles = (variant, popperColor) => {
     },
     input: {
       "& .MuiInput-underline:before": {
-        borderBottomColor: colors.white,
+        borderBottomColor: config.colors.white,
       },
       "& .MuiInput-underline:after": {
-        borderBottomColor: colors.greenLight,
+        borderBottomColor: config.colors.greenLight,
       },
       "& .MuiInput-root": {
         backgroundColor: "transparent",
         color: "inherit",
         height: "auto",
         minHeight: "36.8px",
+        "& input": {
+          textTransform: "inherit",
+        },
       },
     },
     paper: {
       backgroundColor: popperColor,
+      fontSize: "0.8rem",
+      fontFamily: `"Roboto", serif, "Hanuman"`,
     },
   });
 };
@@ -100,7 +106,7 @@ const AutoCompleteObj = ({
   style,
   className,
   value,
-  options = [],
+  options: _options = [],
   onQuickAdd,
   limitTags = 2,
   multiple,
@@ -116,10 +122,18 @@ const AutoCompleteObj = ({
   showCheckbox = true,
   isShowValue = true,
   inputClassName = "",
-  popperColor = colors.success,
+  popperColor = config.colors.success,
+  sorted = {
+    groupByKey: "",
+    ascending: true,
+    sortedFn: "string",
+  },
   ...otherProps
 }) => {
-  // console.log(`from autocomplete obj`, { value, options });
+  const { groupByKey, ascending = true, sortedFn = "string" } = sorted;
+  const options = groupByKey ? sortCollection(groupByKey, _options, ascending, sortedFn) : _options;
+
+  // console.log(`from auto complete`, { sorted });
   const getDefaultValue = (value) => {
     // console.log("from get default", { value, options });
     try {
@@ -265,7 +279,7 @@ const AutoCompleteObj = ({
 
     // console.log({ value, options });
     // eslint-disable-next-line
-  }, [value, options]);
+  }, [value, _options]);
   return (
     <Fragment>
       {options && (
@@ -294,7 +308,6 @@ const AutoCompleteObj = ({
             <TextField
               error={error}
               placeholder={placeholder}
-              className={inputClassName}
               classes={{ root: classes.input }}
               name={name}
               {...params}

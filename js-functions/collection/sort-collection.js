@@ -78,6 +78,8 @@ export { sortCollection };
 //   { id: 1, date: new Date(2020, 9, 3), name: "d" },
 //   { id: 9, date: new Date(2020, 5, 3), name: "a" },
 // ];
-// const d = sortCollection("date", data, true);
-// const df = sortCollection("date", data, false);
-// console.log(`from `, { d, df, data });
+// const d = sortCollection("date3", data, true, "date");
+// const d2 = sortCollection("date", data, false);
+// const d3 = sortCollection("time", [], false);
+// const d4 = sortCollection("id", [], false, "number");
+// console.log(`from `, { d, d2, d3, d4 });

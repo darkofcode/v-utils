@@ -1,0 +1,44 @@
+.react-datepicker__navigation {
+  outline: none;
+}
+.react-datepicker__day--outside-month {
+  color: #b2b2b2;
+}
+
+.react-datepicker__year-select,
+.react-datepicker__month-select {
+  border: none;
+  background: transparent;
+  border-radius: 0px;
+  outline: none;
+}
+.react-datepicker__month-dropdown-container,
+.react-datepicker__year-dropdown-container {
+  & :focus-visible {
+    outline: none;
+  }
+  & :focus {
+    outline: none;
+  }
+}
+
+.react-datepicker__day-names {
+  cursor: auto;
+  white-space: nowrap;
+}
+.react-datepicker-time__caption {
+  margin-right: 10px;
+}
+.react-datepicker-time__input {
+  border: none;
+  border-bottom: 1px solid rgb(94, 94, 94);
+  border-radius: 0;
+  outline: none;
+}
+.react-datepicker__input-time-container {
+  margin: 5px 0px !important;
+  text-align: center;
+}
+.react-datepicker-popper[data-placement^="bottom"] {
+  margin-top: 10px;
+}

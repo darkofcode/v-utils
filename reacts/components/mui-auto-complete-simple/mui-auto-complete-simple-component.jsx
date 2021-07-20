@@ -6,7 +6,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Checkbox from "@material-ui/core/Checkbox";
 // import truncate from "lodash/truncate";
 import Hidden from "@material-ui/core/Hidden";
-import { colors } from "../mui-config/colors";
+import config from "../mui-config/config";
+import { sortCollection } from "../../../js-functions/collection/sort-collection";
 
 const filter = createFilterOptions();
 
@@ -58,11 +59,11 @@ const useStyles = (variant, popperColor) => {
     },
     input: {
       "& .MuiInput-underline:before": {
-        borderBottomColor: colors.white,
+        borderBottomColor: config.colors.white,
         borderBottom: nothing ? "none" : "1px solid",
       },
       "& .MuiInput-underline:after": {
-        borderBottomColor: colors.greenLight,
+        borderBottomColor: config.colors.greenLight,
       },
       "& .MuiInput-root": {
         backgroundColor: "transparent",
@@ -81,6 +82,8 @@ const useStyles = (variant, popperColor) => {
     },
     paper: {
       backgroundColor: popperColor,
+      fontSize: "0.8rem",
+      fontFamily: `"Roboto", serif, "Hanuman"`,
     },
     // inputClassName: inputClassName,
   });
@@ -98,7 +101,7 @@ export default ({
   style,
   className,
   value,
-  options,
+  options: _options = [],
   onQuickAdd,
   limitTags = 2,
   multiple,
@@ -112,9 +115,17 @@ export default ({
   showCheckbox = true,
   // inputClassName = "",
   error,
-  popperColor = colors.success,
+  popperColor = config.colors.success,
+  sorted = {
+    groupByKey: "",
+    ascending: true,
+    sortedFn: "string",
+  },
   ...otherProps
 }) => {
+  const { groupByKey, ascending = true, sortedFn = "string" } = sorted;
+  const options = groupByKey ? sortCollection(groupByKey, _options, ascending, sortedFn) : _options;
+
   const getDefaultValue = (value) => {
     if (typeof value === "string") {
       return value ? value : null;
@@ -231,7 +242,7 @@ export default ({
   useEffect(() => {
     setInitValue(getDefaultValue(value));
     // eslint-disable-next-line
-  }, [value, options]);
+  }, [value, _options]);
   // option label be to display
   return (
     <Autocomplete

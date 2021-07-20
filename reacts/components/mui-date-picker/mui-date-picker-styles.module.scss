@@ -1,0 +1,37 @@
+@import "../../uv-commons/styles/variable.scss";
+.muiDatePicker {
+  cursor: pointer;
+  width: 100%;
+}
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.dateInput {
+  width: 100%;
+  padding-right: 32px !important;
+
+  input {
+    cursor: pointer;
+  }
+}
+.dateInputNone {
+  visibility: hidden;
+  width: 0;
+}
+.dateDate {
+  color: inherit;
+  position: absolute;
+  right: 6px;
+}
+.clickOut {
+  text-align: center;
+  padding-bottom: 12px;
+  color: rgb(175, 4, 4);
+}
+.notThisMonth {
+  color: #9a9a9a !important;
+}
