@@ -1,6 +1,7 @@
 import React from "react";
 import uvStyle from "../formik-elm-styles.module.scss";
-import DatePicker from "../../react-date-picker";
+// import DatePicker from "../../react-date-picker";
+import DatePicker from "../../mui-date-picker/mui-date-picker-component";
 import { isMobileScreen } from "../../../../js-functions/window/is-mobile-screen";
 
 const MuiDatePicker = ({

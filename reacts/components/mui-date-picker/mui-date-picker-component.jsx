@@ -93,8 +93,8 @@ const MuiDatePicker = ({
     // inputElm.current.blur();
   };
   const handleDateValueChange = (e) => {
-    const v = e.target.value;
-    console.log(`from value date input`, { value: v });
+    // const v = e.target.value;
+    // console.log(`from value date input`, { value: v });
   };
 
   useEffect(() => {
@@ -130,7 +130,7 @@ const MuiDatePicker = ({
         }) => (
           <div
             style={{
-              margin: "3px 10px",
+              padding: "3px 5px",
               display: "flex",
               justifyContent: "space-between",
             }}

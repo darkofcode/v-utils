@@ -27,7 +27,7 @@
   white-space: nowrap;
 }
 .react-datepicker-time__caption {
-  margin-right: 10px;
+  padding-right: 10px;
 }
 .react-datepicker-time__input {
   border: none;
@@ -36,9 +36,12 @@
   outline: none;
 }
 .react-datepicker__input-time-container {
-  margin: 5px 0px !important;
+  padding: 5px 0px !important;
   text-align: center;
 }
 .react-datepicker-popper[data-placement^="bottom"] {
-  margin-top: 10px;
+  padding-top: 10px;
+}
+.react-datepicker__triangle {
+  display: none !important;
 }
