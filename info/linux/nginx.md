@@ -17,6 +17,24 @@
 
 > sudo systemctl restart nginx
 
+## set-headers respond
+
+install
+
+> sudo apt install libnginx-mod-http-headers-more-filter
+
+open nginx config
+
+> sudo vi /etc/nginx/nginx.conf
+
+add the following line
+
+```
+
+  more_set_headers 'Server: whatever-server-name-is';
+
+```
+
 ## test if nginx working
 
 > sudo nginx -t

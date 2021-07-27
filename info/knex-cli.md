@@ -9,8 +9,26 @@ knex migrate:latest
 // rollback to clean state
 knex migrate:rollback
 
+// create migration directory
+
+knex migrate:make acc_income
+
+this will create knex migration directory with
+
+
+  exports.up = function(knex) {
+
+  };
+
+  exports.down = function(knex) {
+
+  };
+
+
+
 // run knex seed
 knex seed:run
+
 ```
 
 ## knex cli with esm
