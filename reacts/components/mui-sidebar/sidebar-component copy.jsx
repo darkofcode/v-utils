@@ -11,7 +11,6 @@ import Rotate from "../rotate/rotate-component";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 import { makeStyles } from "@material-ui/core/styles";
 import useLocalStorage from "../../hooks/use-local-storage";
-import { isMobileScreen } from "uv-utils/js-functions/window/is-mobile-screen";
 
 const useStyles = (width, top, bgColor) => {
   return makeStyles((theme) => ({
@@ -93,10 +92,7 @@ const Sidebar = ({ top, width, listItems, children, bgColor }) => {
               to={`${match.url}/${item.path}`}
             >
               <ListItem button>
-                <div className={`${style.icon} mr-4`}>
-                  <div>{item.icon}</div>
-                  {(!open || isMobileScreen()) && <div className={style.subText}>{item.name}</div>}
-                </div>
+                <div className={`${style.icon} mr-4`}>{item.icon}</div>
                 <ListItemText primary={item.name} />
               </ListItem>
             </NavLink>

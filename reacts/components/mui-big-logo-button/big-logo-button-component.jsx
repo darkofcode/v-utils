@@ -30,7 +30,7 @@ const BigLogoButton = (props) => {
         className={`${mStyle.cardBtn}  `}
         style={{ backgroundColor: color }}
       >
-        <div style={logoWrapperStyle} className={logoWrapperClassName}>
+        <div style={logoWrapperStyle} className={`${mStyle.icon} ${logoWrapperClassName}`}>
           {logo}
         </div>
         <div className={`${mStyle.name}  `}>{text}</div>

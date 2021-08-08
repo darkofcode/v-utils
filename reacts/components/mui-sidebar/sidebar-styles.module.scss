@@ -15,3 +15,15 @@
   position: absolute;
   top: 50%;
 }
+.icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 24px;
+}
+.subText {
+  font-size: 0.54rem;
+  margin-top: 9px;
+  text-transform: capitalize;
+}
