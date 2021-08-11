@@ -12,6 +12,7 @@ import { findIndexOfCollection as findIndex } from "../../../js-functions/collec
 import config from "../mui-config/config";
 import Hidden from "@material-ui/core/Hidden";
 import { sortCollection } from "../../../js-functions/collection/sort-collection";
+import { isMobileScreen } from "uv-utils/js-functions/window/is-mobile-screen";
 
 // const filter = createFilterOptions();
 
@@ -83,6 +84,10 @@ const useStyles = (variant, popperColor) => {
       backgroundColor: popperColor,
       fontSize: "0.8rem",
       fontFamily: `"Roboto", serif, "Hanuman"`,
+    },
+    clearBtn: {
+      pointerEvents: "none",
+      display: "none",
     },
   });
 };
@@ -296,6 +301,7 @@ const AutoCompleteObj = ({
             endAdornment: classes.arrow,
             paper: popperColor ? classes.paper : null,
             groupLabel: popperColor ? classes.paper : null,
+            clearIndicator: isMobileScreen() ? classes.clearBtn : undefined,
           }}
           onChange={handleChange}
           renderTags={renderTags}
