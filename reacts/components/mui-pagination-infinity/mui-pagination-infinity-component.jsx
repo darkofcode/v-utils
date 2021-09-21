@@ -8,7 +8,7 @@ import { IconButton } from "@material-ui/core";
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-const MuiPagination = ({ current = 1, onPageChange, maxPage = 100, className }) => {
+const MuiPagination = ({ current = 1, onPageChange, maxPage = 100, disableInput = false, className }) => {
   const [pageNo, setPageNo] = useState(current);
   const pageRef = useRef();
   const handleChange = (event) => {
@@ -82,6 +82,7 @@ const MuiPagination = ({ current = 1, onPageChange, maxPage = 100, className }) 
         className={`${uvStyle.naked} `}
         type="text"
         autoComplete="off"
+        readOnly={disableInput}
       />
 
       <IconButton onClick={handleIncrease} size="small" color="inherit">

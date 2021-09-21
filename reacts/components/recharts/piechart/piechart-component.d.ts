@@ -11,6 +11,7 @@ export interface Props {
     valueKey: "";
     length: 12;
   };
+  className?: string;
 }
 
 declare const ComponentName: React.ComponentType<Props>;

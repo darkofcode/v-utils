@@ -19,6 +19,7 @@ export default function PieChartComponent({
     valueKey: "",
     length: 12,
   },
+  className = "",
 }) {
   const [activePie, setActivePie] = useState(0);
   const legendShow = legendOption.show;
@@ -98,7 +99,7 @@ export default function PieChartComponent({
   return (
     <>
       {pieData.length ? (
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer className={className} width="100%" height="100%">
           <PieChart>
             <Pie
               labelLine={false}
