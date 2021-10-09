@@ -47,3 +47,19 @@
   | Author: vichetch <ukvichetch@gmail.com>
 */
 ```
+
+## submodule
+
+```javascript
+// add submodule from remote shallow depth
+> git submodule --depth depth <remote_path> <local_path>
+ex: git submodule --depth 1 https://github.com/darthofcode/v-utils submodules/v-utils
+
+// sparse-checkout clone only directory we need
+// cd to that sub module 'cd submodules/v-utils'
+> git sparse-checkout init // this will delete everything
+> git sparse-checkout add js-functions // this will only add js-functions
+
+// pull submodule
+> git submodule update --remote
+```
