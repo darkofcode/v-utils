@@ -4,23 +4,23 @@
 
 <!-- if new bran is already existed -->
 
-> > git checkout branchName
+> git checkout branchName
 
 ## change and create new branch
 
 <!-- if new branch name is not yet existed -->
 
-> > git checkout -b newBranchName
+> git checkout -b newBranchName
 
 ## merge new branch to master branch
 
 <!-- copy all master branch to new branch -->
 
-> > git merge master
+> git merge master
 
 ## show all graph
 
-> > git log --all --decorate --graph
+> git log --all --decorate --graph
 
 ```javascript
 /*
