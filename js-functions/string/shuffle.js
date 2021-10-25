@@ -1,3 +1,8 @@
+/**
+ *
+ * @param {string} str
+ * @returns {string}
+ */
 function shuffle(str) {
   var a = str.toString().split(""),
     n = a.length;

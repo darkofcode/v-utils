@@ -25,7 +25,9 @@ const generateSecrete = (len, { upper = true, special = false, baseChar = "" } =
   return randomStr;
 };
 
-// const a = generateSecrete(6, { upper: true, special: false });
-// console.log(a);
+const a1 = generateSecrete(32, { upper: true, special: true });
+const a2 = generateSecrete(32, { upper: true, special: true });
+const a3 = generateSecrete(32, { upper: true, special: true });
+console.log({ a1, a2, a3 });
 
 export { generateSecrete };
