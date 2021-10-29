@@ -2,10 +2,11 @@ import { chunkString } from "../string/chunk-string";
 
 /**
  *
- * @param {string} numString
+ * @param {string|undefined} numString
  * @return {boolean}
  */
 const isBigInt = (numString) => {
+  if (!numString) return false;
   const bigInt = "9223372036854775807";
   const numArr = numString.split("");
   if (numString.length > bigInt.length) return false;

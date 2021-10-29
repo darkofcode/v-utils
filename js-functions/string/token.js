@@ -19,13 +19,13 @@ const verifyToken = (token, secrete) => {
  * @param {[string]:any} payloadObj
  * @param {string} jwtSecrete
  * @param {string} shuffleSecrete
- * @param {number} expiresInDays
+ * @param {number} expiresInSecond
  * @returns {string}
  *
  */
-const getToken = (payloadObj, jwtSecrete, shuffleSecrete, expiresInDays) => {
+const getToken = (payloadObj, jwtSecrete, shuffleSecrete, expiresInSecond) => {
   const token = jwt.sign(payloadObj, jwtSecrete, {
-    expiresIn: `${expiresInDays}d`,
+    expiresIn: expiresInSecond,
   });
   return encode(shuffleSeed.shuffle(token.split(""), shuffleSecrete).join(""));
 };

@@ -1,3 +1,12 @@
+/**
+ * @typedef {Object} sus
+ * @property {string} category
+ * @property {string[]} patterns
+ */
+
+/**
+ * @type {sus[]}
+ */
 const suspiciousInput = [
   {
     category: "Path Traversal",
@@ -27,14 +36,14 @@ const suspiciousInput = [
       "\\x3cscript",
       "%3cscript",
       "alert(",
-      "onclick=",
-      "onerror=",
-      "onkeydown=",
-      "onkeypress=",
-      "onkeyup=",
-      "onmouseout=",
-      "onmouseover=",
-      "onload=",
+      "onclick",
+      "onerror",
+      "onkeydown",
+      "onkeypress",
+      "onkeyup",
+      "onmouseout",
+      "onmouseover",
+      "onload",
       "document.cookie",
       ".addeventlistener",
       // "javascript",

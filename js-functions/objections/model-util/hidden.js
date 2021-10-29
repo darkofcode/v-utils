@@ -15,6 +15,7 @@ export default function hidden(Model = _Model) {
       const hidden = getArray(conf.hidden);
       const selectOnly = getArray(conf.selectOnly);
 
+      // console.log(`from hidden`, { hidden, selectOnly });
       if (!hidden && !selectOnly) {
         return formattedJson;
       }
