@@ -1,0 +1,110 @@
+@keyframes aniCloud {
+  0% {
+    transform: scale(0.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes aniShake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+.cloud {
+  animation: aniShake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both infinite;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+.cloudRound {
+  transform: scale(0);
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: aniCloud 1s ease-out var(--cloudDelay) alternate infinite;
+}
+
+// line
+@keyframes aniLineMoving {
+  0% {
+    transform: translateY(0px) scale(0);
+  }
+  100% {
+    transform: translateY(13px) scale(1);
+  }
+}
+.line {
+  transform: scale(0);
+  transform-origin: top;
+  transform-box: fill-box;
+  animation: aniLineMoving 0.7s linear var(--lineDelay) infinite;
+}
+
+// line
+@keyframes aniStarMoving {
+  0% {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(225px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(450px);
+  }
+}
+.star {
+  opacity: 0;
+  transform-origin: top;
+  transform-box: fill-box;
+  animation: aniStarMoving 2s linear var(--starDelay) infinite;
+}
+
+// phantom
+@keyframes aniShakePhantom {
+  10%,
+  90% {
+    transform: translate3d(-1px, -1px, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 2px, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, -4px, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 4px, 0);
+  }
+}
+.phantom {
+  animation: aniShakePhantom 3.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both infinite;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 500px;
+}
