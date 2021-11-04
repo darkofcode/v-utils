@@ -52,8 +52,8 @@
 
 ```javascript
 // add submodule from remote shallow depth
-> git submodule --depth depth <remote_path> <local_path>
-ex: git submodule --depth 1 https://github.com/darthofcode/v-utils submodules/v-utils
+> git submodule add --depth depth <remote_path> <local_path>
+ex: git submodule add --depth 1 https://github.com/darthofcode/v-utils submodules/v-utils
 
 // sparse-checkout clone only directory we need
 // cd to that sub module 'cd submodules/v-utils'
