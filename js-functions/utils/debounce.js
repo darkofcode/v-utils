@@ -11,7 +11,7 @@
  *
  */
 
-function debounce(fn, delay) {
+function debounce(fn, delay = 250) {
   var timer = null;
   return function () {
     const args = arguments;

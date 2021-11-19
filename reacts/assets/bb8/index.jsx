@@ -7,7 +7,7 @@ export default function DeathStar({
   headColor = "#58595b",
   headDownColor = "#192e60",
   ...others
-}: any) {
+}) {
   return (
     <svg
       className={className}

@@ -1,0 +1,30 @@
+.text {
+  transform-box: fill-box;
+  transform-origin: bottom right;
+  transform: scale(0);
+  animation: aniText 3s ease-in-out infinite;
+}
+.rotate {
+  transform-box: fill-box;
+  transform-origin: top left;
+  transform: rotateZ(-5deg);
+  animation: aniRotate 1s ease-in-out alternate infinite;
+}
+
+@keyframes aniText {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes aniRotate {
+  0% {
+    transform: rotateZ(-5deg);
+  }
+  100% {
+    transform: rotateZ(5deg);
+  }
+}

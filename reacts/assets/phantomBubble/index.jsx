@@ -1,12 +1,7 @@
-//@ts-nocheck
 import { useEffect } from "react";
 import uvStyle from "./style.module.scss";
 
-function getRnd(min, max) {
-  // min and max included
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-export default function Phantom(props: any) {
+export default function Phantom(props) {
   useEffect(() => {
     const clouds = document.querySelectorAll(`#${uvStyle.cloud} g`);
     // const clouds = cloud?.children;

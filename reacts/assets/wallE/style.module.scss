@@ -1,0 +1,49 @@
+.text {
+  transform-box: fill-box;
+  transform-origin: bottom right;
+  transform: scale(0);
+  animation: aniText 3s ease-in-out infinite;
+}
+.hand {
+  transform-box: fill-box;
+  transform-origin: top left;
+  transform: rotateZ(-3deg);
+  animation: aniHand 1s ease-in-out alternate infinite;
+}
+.dirt {
+  transform-box: fill-box;
+  transform-origin: bottom right;
+  transform: translate(165px, 64px);
+  opacity: 0.7;
+  animation: aniDirt 2s ease-out infinite;
+}
+@keyframes aniDirt {
+  0% {
+    opacity: 0.7;
+    transform: translate(165px, 64px);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+    transform: translate(0px, 0px);
+  }
+}
+@keyframes aniText {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes aniHand {
+  0% {
+    transform: rotateZ(-3deg);
+  }
+  100% {
+    transform: rotateZ(5deg);
+  }
+}
