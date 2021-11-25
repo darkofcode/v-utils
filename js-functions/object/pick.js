@@ -5,7 +5,7 @@ import trim from "lodash/trim";
  * @param {Object} obj
  * @param {string | string[]} pickKeys
  * @param {any[]} deleteKeysIfValuesContained default = [null, undefined]
- * @return Object
+ * @return {Object}
  * @example
  * const obj = {a: 0,b: 2,c: null,d: undefined,e: 3,f: "4"};
  * const a = pick(obj, ["a", "b", "c", "d", "h", "i"]);
