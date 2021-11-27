@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.big {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2;
+  column-gap: 3px;
+  row-gap: 3px;
+  width: calc(100% - 12px);
+  height: 100%;
+}
+.black {
+  height: calc(35%);
+  width: 6px;
+  background: #6a6363;
+}
+.red {
+  background: #e52525;
+}
+.blue {
+  background: #276eca;
+}
