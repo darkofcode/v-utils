@@ -7,6 +7,10 @@ import { chunkString } from "../string/chunk-string";
  */
 const isBigInt = (numString) => {
   if (!numString) return false;
+  const t = typeof numString;
+  if (t !== "string" && t !== "number") return false;
+  numString = numString.toString();
+
   const bigInt = "9223372036854775807";
   const numArr = numString.split("");
   if (numString.length > bigInt.length) return false;
@@ -23,9 +27,10 @@ const isBigInt = (numString) => {
 };
 export { isBigInt };
 
-// console.log(isBigInt("9223372036-854775807"));
-// console.log(isBigInt("9323372036954775807"));
-// console.log(isBigInt("824775907"));
-// console.log(isBigInt("9223a3720365807"));
-// console.log(isBigInt("92233720388547707"));
-// console.log(isBigInt("9223372036854775808745645"));
+// console.log("a1", isBigInt("9223372036-854775807"));
+// console.log("a2", isBigInt("9323372036954775807"));
+// console.log("a3", isBigInt("824775907"));
+// console.log("a4", isBigInt("82477"));
+// console.log("a5", isBigInt("9223a3720365807"));
+// console.log("a6", isBigInt("92233720388547707"));
+// console.log("a7", isBigInt("9223372036854775808745645"));

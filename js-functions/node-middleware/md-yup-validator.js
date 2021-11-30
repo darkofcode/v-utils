@@ -5,7 +5,7 @@ const { isEmpty } = require("../object/is-empty");
 /**
  *
  * @param {any} yupSchema
- * @param {string} [bodyPath]
+ * @param {"body"|"query"} [bodyPath]
  * @param {{strict: boolean,abortEarly: boolean,stripUnknown: boolean ,recursive: boolean,context?: object}} [yupOption]
  * @default { bodyPath:'body' } bodyPath
  * @default { strict:false,abortEarly:true,skipUnknown:false,recursive:true } yupOption

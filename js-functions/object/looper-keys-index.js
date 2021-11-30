@@ -1,20 +1,75 @@
 import { isObject } from "./is-obj";
-// const isObject = require("lodash/isPlainObject");
+import { get } from "./get";
 
 /**
  *
  * @param {any} object
- * @param {Function} keyValFunction f(key,val,keys)=>{key,val}
+ * @param {(key:string,val:any,keys:string[])=>{key:string,val:any}} keyValFunction f(key,val,keys)=>{key,val}
  * @example
- * let o = {a:1,b:2,c:3}
- * let f = (k,v,ks)=>({key:k.toUpperCase(),val:v+1})
- * looper(o,f) => {A:2,B:3,C:4}
+  const t = {
+    headTitle: "Payment confirmed",
+    name: "John Doe",
+    receipt: { id: "214356451234512123", date: "2021-03-01", expired: "2022-02-01" },
+    company: {
+      id: "114256451734512628",
+      name: "Jack Lima",
+      address: "#349,Str.99,Steung ",
+      assets: {
+        itm1: "1",
+        itm2: "2",
+        set1: ["s1", "s2"],
+      },
+    },
+    total: ["total", "$ 216.00"],
+  };
+
+  const tf = (key, val, keys) => {
+    const newVal = isObject(val) || Array.isArray(val) ? val : keys.join(".");
+    return { key, val: newVal };
+  };
+  const r = looperKeysIndex(t, tf);
+  r=>{
+    "headTitle": "headTitle",
+    "name": "name",
+    "receipt": {
+      "id": "receipt.id",
+      "date": "receipt.date",
+      "expired": "receipt.expired"
+    },
+    "company": {
+      "id": "company.id",
+      "name": "company.name",
+      "address": "company.address",
+      "assets": {
+        "itm1": "company.assets.itm1",
+        "itm2": "company.assets.itm2",
+        "set1": [
+          "company.assets.set1.0",
+          "company.assets.set1.1"
+        ]
+      }
+    },
+    "total": [
+      "total.0",
+          "company.assets.set1.0",
+          "company.assets.set1.1"
+        ]
+      }
+    },
+    "total": [
+      "total.0",
+      "total.1"
+    ]
+  }
+ *
  */
 const looperKeysIndex = (object, keyValFunction) => {
   const repeater = (obj, loopKeys) => {
     let newObj = Array.isArray(obj) ? [] : {};
     if (!isObject(obj) && !Array.isArray(obj)) {
-      const { val: finalVal } = keyValFunction("", obj, loopKeys);
+      // const { val: finalVal } = keyValFunction("", obj, loopKeys);
+      const finalValObj = keyValFunction("", obj, loopKeys);
+      const finalVal = get(finalValObj, "val", obj);
       return finalVal;
     }
     const keys = Object.keys(obj);
@@ -51,8 +106,12 @@ export { looperKeysIndex };
 //     id: "114256451734512628",
 //     name: "Jack Lima",
 //     address: "#349,Str.99,Steung ",
+//     assets: {
+//       itm1: "1",
+//       itm2: "2",
+//       set1: ["s1", "s2"],
+//     },
 //   },
-//   // purchases: [[1, "personal", "1 year", "72"]],
 //   total: ["total", "$ 216.00"],
 // };
 

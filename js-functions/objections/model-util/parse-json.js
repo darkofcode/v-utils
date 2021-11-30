@@ -37,8 +37,8 @@ export default function parseJson(Model = _Model) {
       });
     }
 
-    async $beforeUpdate(context) {
-      await super.$beforeUpdate(context);
+    async $beforeUpdate(opt, context) {
+      await super.$beforeUpdate(opt, context);
       this.constructor._1611337314219_getFields().forEach((field) => {
         this[field] = JSON.stringify(this[field]);
       });

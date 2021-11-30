@@ -1,9 +1,10 @@
-import { string } from "yup";
+import { mixed } from "yup";
 import { isBigInt } from "../psql-query/is-bigint";
 
 const bigInt = () =>
-  string().test("match", "", function (value) {
+  mixed().test("match", "", function (value) {
     const { path, createError } = this;
+    if (!value) return true;
     if (!isBigInt(value)) {
       return createError({
         path,

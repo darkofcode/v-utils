@@ -20,8 +20,8 @@ export default function timeStamps({
       }
     }
 
-    async $beforeUpdate(context) {
-      await super.$beforeUpdate(context);
+    async $beforeUpdate(opt, context) {
+      await super.$beforeUpdate(opt, context);
       if (beforeUpdate) {
         if (this.updated_at) return;
         this.updated_at = new Date().toISOString();

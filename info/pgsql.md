@@ -4,23 +4,42 @@
 
 ```javascript
 exports.up = async function (knex) {
-  await knex.schema
-    .raw(`create sequence "user_company_id_seq" start ${counter.userCompany}`)
-    .raw(`create table "user_company"(id bigint unique DEFAULT NEXTVAL('user_company_id_seq'))`)
-    .table("user_company", (tbl) => {
-      tbl.bigInteger("user_id").notNullable().references("id").inTable("user");
-      tbl.bigInteger("company_id").notNullable().references("id").inTable("company");
-      tbl.string("company_name");
-      tbl.string("user_name");
-      tbl.enu("role", allRoles).defaultTo("member");
-      tbl.timestamps(true, true);
-      tbl.string("updated_by", 500); // {id:"123-456",value:"what is your name"}
-      tbl.index(["user_id", "company_id"]);
-    });
+  /**
+   *
+   * @param {import('knex').Knex} knex
+   * @returns
+   */
+  const post = async (knex) => {
+    const tblName = "post";
+    const seqName = `${tblName}_id_seq`;
+    const start = 1;
+    await knex.schema
+      .raw(`create sequence "${seqName}" start ${start}`)
+      .raw(`create table "${tblName}"(id bigint unique DEFAULT NEXTVAL('${seqName}'))`)
+      .table(tblName, (tbl) => {
+        tbl.timestamps(true, true);
+        tbl.string("title");
+        tbl.string("photo_url");
+        tbl.string("description");
+        tbl.string("platform_icon_url");
+        tbl.string("platform_link");
+        tbl.string("platform_name");
+        tbl.string("github_repo");
+        tbl.string("coupon");
+        tbl.index(["platform_name"]);
+      });
+
+    await knex.raw(` 
+    ALTER TABLE "${tblName}" ADD "search" tsvector;
+    CREATE INDEX "${tblName}_search_index" ON ${tblName} USING gin("search");
+    `);
+  };
 };
 
 exports.down = async function (knex) {
-  await knex.schema.dropTableIfExists("user_company").raw("drop sequence if exists user_company_id_seq");
+  await knex.schema
+    .dropTableIfExists("user_company")
+    .raw("drop sequence if exists user_company_id_seq");
 };
 ```
 
@@ -64,7 +83,9 @@ holidays[0].$toJson() will work if not empty
 ### eager join withGraphFetched
 
 ```javascript
-const companyQuery = await Company.query().findById(company.id).withGraphFetched("[users,bill,setting]"); //.withGraphFetched("users")
+const companyQuery = await Company.query()
+  .findById(company.id)
+  .withGraphFetched("[users,bill,setting]"); //.withGraphFetched("users")
 ```
 
 ### eager join withGraphJoined
