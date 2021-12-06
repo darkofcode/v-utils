@@ -19,7 +19,8 @@ const yupValidator =
     const body = get(req, _bodyPath, {});
     // console.log(`from yup validator`, { body, _bodyPath });
     try {
-      await yupSchema.validate(body, option);
+      const validBody = await yupSchema.validate(body, option);
+      Object.assign(req, { [_bodyPath]: validBody });
       return next();
     } catch (err) {
       return next(new ErrorRes(err.errors, 401));
