@@ -1,6 +1,6 @@
 /**
  *
- * @param {{[key:string]:string}} p
+ * @param {{[key:string]:any}} p
  * @return {string}
  *
  * @example
