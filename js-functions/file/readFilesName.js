@@ -24,6 +24,7 @@ const getNames = (dirPath, files, isFullPath) => {
  * @param {string} directoryPath
  * @param {boolean} isFullPath
  * @returns {Promise<string[]>}
+ * @default {isFullPath:false}
  * @example
  * getFileNamesAsync(path.join(__dirname,'./abc'))
  * =>['1.png','2.jpg']
@@ -43,6 +44,7 @@ const getFileNamesAsync = async (directoryPath, isFullPath = false) => {
  * @param {string} directoryPath
  * @param {boolean} isFullPath
  * @returns {string[]}
+ * @default {isFullPath:false}
  * @example
  * getFileNamesAsync(path.join(__dirname,'./abc'))
  * =>['1.png','2.jpg']
