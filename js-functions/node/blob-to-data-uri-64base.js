@@ -1,3 +1,8 @@
+/**
+ *
+ * @param {File|Blob} blob ex:image file from onchange input
+ * @returns {Promise<string>}
+ */
 const blobToDataUri = (blob) => {
   // console.log(`from blob to uri`, blob);
   return new Promise((resolve, reject) => {

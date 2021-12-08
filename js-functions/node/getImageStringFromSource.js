@@ -31,3 +31,4 @@ const getImageStringFromSource = (src) => {
 };
 
 export default getImageStringFromSource;
+export { getImageStringFromSource };
