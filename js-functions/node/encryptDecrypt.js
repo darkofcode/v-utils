@@ -51,8 +51,11 @@ export { getEncrypt, getDecrypt };
 //   rank: "lieutenant",
 //   ip: "114.134.185.138",
 // });
-// const key = rnd(32, { special: true, upper: true });
-// const iv = rnd(16, { special: true, upper: true });
+// const key = rnd(32, { special: false, upper: false });
+// const iv = rnd(16, { special: false, upper: false });
+//   key: 'n9MV77@F)f%?M7p9(DVP)k3@%%Zg&)TB',
+//  iv: '(9&9d9(K3?(Dm%Q%',
+// console.log(`from enc:\n`, { key, iv });
 
 // const enc = getEncrypt(msg, key, iv, "utf8", "base64");
 // const dec = getDecrypt(enc, key, iv, "base64", "utf8");

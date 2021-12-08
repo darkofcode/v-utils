@@ -95,3 +95,15 @@ const addFn = (arrayArgs) => {
  * @typedef {import('../string/suspicious-inputs.js').sus} sus
  *
  */
+
+
+/**
+ * @type {import('objection').Model}
+ */
+ class Post extends baseModel() {
+  static tableName = "post";
+  static seqId = "post_id_seq";
+  static tsSearchColumns = ["search", "title", "description", "platform_name"];
+  static hidden = ["search"];
+  
+}
