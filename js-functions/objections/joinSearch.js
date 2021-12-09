@@ -19,7 +19,7 @@ export const getSearchJoinValue = async (body = {}, joinColumns = []) => {
     if (primitive) r.push(primitive);
   });
   const tsv = await getTsVector(r.join(" "));
-  console.log(`from join search`, { tsv, newBody, body });
+  // console.log(`from join search`, { tsv, newBody, body });
   return tsv;
 };
 

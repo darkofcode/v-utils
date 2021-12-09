@@ -50,8 +50,8 @@ export default function tsSearch(Model = _Model) {
       if (isEmpty(searchKey) || isEmpty(otherKeys)) return;
       const searchValue = await getSearchJoinValue(this, otherKeys);
 
-      const whatIsThis = this;
-      console.log(`from tsSearch`, { whatIsThis, context, searchValue });
+      // const whatIsThis = this;
+      // console.log(`from tsSearch`, { whatIsThis, context, searchValue });
 
       this[searchKey] = searchValue;
     }
@@ -65,8 +65,8 @@ export default function tsSearch(Model = _Model) {
       const newDoc = pick(this, otherKeys);
       const searchValue = await getSearchJoinValue({ ...oldDoc, ...newDoc }, otherKeys);
 
-      const whatIsThis = this;
-      console.log(`from tsSearch`, { whatIsThis, opt, context, searchValue });
+      // const whatIsThis = this;
+      // console.log(`from tsSearch`, { whatIsThis, opt, context, searchValue });
 
       this[searchKey] = searchValue;
     }

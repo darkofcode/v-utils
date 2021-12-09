@@ -35,3 +35,4 @@ const getYupOption = (option) => {
 };
 
 export default yupValidator;
+export { yupValidator };
