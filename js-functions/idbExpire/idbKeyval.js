@@ -8,7 +8,7 @@ import { isDate } from "../date/is-date";
  * @param {string} key
  * @returns {Promise<any|undefined>}
  */
-export const get = async (key) => {
+export const getIdb = async (key) => {
   const data = await getDb(key);
   const v = getObj(data, key);
   const expiredAt = new Date(getObj(data, "expiredAt", new Date(0)));
@@ -25,7 +25,7 @@ export const get = async (key) => {
  * @param {number} expiredInDays
  * @returns
  */
-export const set = async (key, value, expiredInDays) => {
+export const setIdb = async (key, value, expiredInDays) => {
   const exp = expiredInDays ? expiredInDays : 1;
   const v = {
     [key]: value,
