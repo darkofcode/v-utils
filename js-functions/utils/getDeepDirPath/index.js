@@ -6,6 +6,10 @@ import { hash } from "./simpleHash";
  * @param {number} subDirectoryDeep
  * @param {number} salt
  * @return {string}
+ * @example
+ * getDeepDirPath('123',7,591)
+ * => '35465fd7/35465fd7/35465fd7/35465fd7/35465fd7/35465fd7'
+ *
  */
 export const getDeepDirPath = (numString, subDirectoryDeep = 7, salt = 349) => {
   numString = typeof numString === "number" ? numString.toString() : numString;
@@ -33,9 +37,9 @@ const getPadZero = (numString, subDirectoryDeep = 7) => {
   return arr;
 };
 
-// console.log(`t0: `, deepSubdirectory(0));
-// console.log(`t1: `, deepSubdirectory(1));
-// console.log(`t2: `, deepSubdirectory(2));
-// console.log(`t3: `, deepSubdirectory(Number.MAX_SAFE_INTEGER));
-// console.log(`t4: `, deepSubdirectory(1001));
-// console.log(`t5: `, deepSubdirectory(361001));
+// console.log(`t0: `, getDeepDirPath(0));
+// console.log(`t1: `, getDeepDirPath(1));
+// console.log(`t2: `, getDeepDirPath(2));
+// console.log(`t3: `, getDeepDirPath(Number.MAX_SAFE_INTEGER));
+// console.log(`t4: `, getDeepDirPath(1001));
+// console.log(`t5: `, getDeepDirPath(361001));

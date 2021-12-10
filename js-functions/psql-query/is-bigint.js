@@ -11,6 +11,8 @@ const isBigInt = (numString) => {
   if (t !== "string" && t !== "number") return false;
   numString = numString.toString();
 
+  //     1 016 668 577 203 461
+  // 9 223 372 036 854 775 807
   const bigInt = "9223372036854775807";
   const numArr = numString.split("");
   if (numString.length > bigInt.length) return false;
