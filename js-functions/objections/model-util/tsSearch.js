@@ -40,7 +40,7 @@ export default function tsSearch(Model = _Model) {
   // deep join search value
   return class TsSearch extends Model {
     // tsSearchColumns = ['search','title','description']
-    static get tsSearchColumns() {
+    static tsSearchColumns() {
       return [];
     }
 

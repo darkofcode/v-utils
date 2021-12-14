@@ -13,37 +13,38 @@ export default function setSeqId(Model) {
     // default idKey = "id"
     // ex: seqId = "acc_payable_id_seq";
     // ex: seqId = []
-    static get seqId() {
+    static seqId() {
       return "";
-    }
-
-    static async getNextId() {
-      const [seqId, idKey, pre] = this._1611337397889_getSeqId();
-      return await getNextValue(seqId, pre);
-    }
-    static _1611337397889_getSeqId() {
-      let seqId = this.seqId;
-      let idKey = "id";
-      let pre;
-      if (Array.isArray(seqId)) {
-        [seqId, idKey = idKey, pre = pre] = seqId;
-      }
-      return [seqId, idKey, pre];
     }
 
     async $beforeInsert(context) {
       await super.$beforeInsert(context);
 
       if (this.constructor.seqId) {
-        const [_, idKey] = this.constructor._1611337397889_getSeqId();
+        const [_, idKey] = getSeqId(this.constructor);
 
         // check if id value not existed
         // this is context aka req.body
         if (!this[idKey]) {
-          const nextId = await this.constructor.getNextId();
+          const nextId = await getNextId(this.constructor);
           this[idKey] = nextId;
         }
       }
     }
   };
 }
+
+const getNextId = async (self) => {
+  const [seqId, idKey, pre] = getSeqId(self);
+  return await getNextValue(seqId, pre);
+};
+
+const getSeqId = (self) => {
+  let seqId = self.seqId;
+  let idKey = "id";
+  let pre;
+  if (Array.isArray(seqId)) {
+    [seqId, idKey = idKey, pre = pre] = seqId;
+  }
+  return [seqId, idKey, pre];
+};
