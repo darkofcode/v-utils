@@ -9,20 +9,18 @@ import { isEmpty } from "../../object/is-empty";
 export default function parseJson(Model = _Model) {
   // you can override the hashid properties on a per-model basis using model properties
   return class ParseJson extends Model {
-    static get jsonColumns() {
+    static jsonColumns() {
       return [];
     }
-    static get jsonFields() {
+    static jsonFields() {
       return [];
-    }
-    static _1611337314219_getFields() {
-      return !isEmpty(this.jsonColumns) ? this.jsonColumns : this.jsonFields;
     }
 
     $formatJson(obj) {
       obj = super.$formatJson(obj);
+      const fields = getFields(this.constructor);
 
-      this.constructor._1611337314219_getFields().forEach((field) => {
+      fields.forEach((field) => {
         if (typeof obj[field] === "string") {
           obj[field] = JSON.parse(obj[field]);
         }
@@ -32,16 +30,21 @@ export default function parseJson(Model = _Model) {
     }
     async $beforeInsert(context) {
       await super.$beforeInsert(context);
-      this.constructor._1611337314219_getFields().forEach((field) => {
+      getFields(this.constructor).forEach((field) => {
         this[field] = JSON.stringify(this[field]);
       });
     }
 
     async $beforeUpdate(opt, context) {
       await super.$beforeUpdate(opt, context);
-      this.constructor._1611337314219_getFields().forEach((field) => {
+      getFields(this.constructor).forEach((field) => {
         this[field] = JSON.stringify(this[field]);
       });
     }
   };
 }
+
+const getFields = (self) => {
+  const fields = !isEmpty(self.jsonColumns) ? self.jsonColumns : self.jsonFields;
+  return Array.isArray(fields) ? fields : [];
+};
