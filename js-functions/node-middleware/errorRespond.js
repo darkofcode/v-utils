@@ -6,3 +6,4 @@ class ErrorRespond extends Error {
 }
 
 export default ErrorRespond;
+export { ErrorRespond };

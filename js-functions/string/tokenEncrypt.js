@@ -7,10 +7,10 @@ const verifyToken = (token, secrete) => {
     const verify = jwt.verify(token, secrete, {
       algorithms: "HS256",
     });
-    console.log(`from verify:\n`, verify);
+    // console.log(`from verify:\n`, verify);
     return verify;
   } catch (error) {
-    console.log(`from verify error:\n`, error);
+    // console.log(`from verify error:\n`, error);
     return null;
   }
 };
@@ -34,7 +34,7 @@ const getToken = (payloadObj, jwtSecrete, expiresInSecond, encryption = {}) => {
       me: "3Ax&0SRd{Ajx%vA",
     },
   });
-  console.log(`from getToken:\n`, { jwtSecrete, encryption });
+  // console.log(`from getToken:\n`, { jwtSecrete, encryption });
   if (isEmpty(encryption)) return encodeURIComponent(token);
   const { secrete, iv } = encryption;
   return encodeURIComponent(getEncrypt(token, secrete, iv, "utf8", "base64"));
@@ -56,7 +56,7 @@ const getDecodeToken = (token, jwtSecrete, encryption = {}) => {
     ? _token
     : getDecrypt(_token, secrete, iv, "base64", "utf8");
 
-  console.log(`from decode:\n`, { _token, jwtSecrete });
+  // console.log(`from decode:\n`, { _token, jwtSecrete });
   const gotToken = verifyToken(_token, jwtSecrete);
   return gotToken;
 };
