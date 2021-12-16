@@ -22,7 +22,7 @@ const getRndArray = (arr) => {
 const generateSecrete = (len, { upper = true, special = false, baseChar = "" } = {}) => {
   // exclude aeiou to filter bad word
   let chars = baseChar ? baseChar : "0123456789bcdfghklmnpqrstvwxyz";
-  const specialChar = "$%&()?@";
+  const specialChar = "%&()?@!^[]";
   const string_length = len;
   let randomStr = "";
 
@@ -40,10 +40,11 @@ const generateSecrete = (len, { upper = true, special = false, baseChar = "" } =
   }
   return randomStr;
 };
-
-// const a1 = generateSecrete(32, { upper: true, special: true });
-// const a2 = generateSecrete(32, { upper: true, special: true });
-// const a3 = generateSecrete(32, { upper: true, special: true });
-// console.log({ a1, a2, a3 });
-
 export { generateSecrete };
+
+// const a1 = generateSecrete(64, { upper: true, special: true });
+// const a2 = generateSecrete(64, { upper: true, special: true });
+// const a3 = generateSecrete(64, { upper: true, special: true });
+// const a4 = generateSecrete(64, { upper: true, special: true });
+// const a5 = generateSecrete(64, { upper: true, special: true });
+// console.log({ a1, a2, a3, a4, a5 });

@@ -32,7 +32,7 @@ export const zusThunk = (set, fn, loading = "loading") =>
       for (let loading of loadings) {
         set({ [loading]: false });
       }
-      console.log("from zustand error handler:\n", err);
+      // console.log("from zustand error handler:\n", err);
     });
   };
 

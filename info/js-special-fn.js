@@ -11,7 +11,7 @@ useEffect(() => {
     const elapsed = timestampInMs - start;
     const delta = timestampInMs - (previousTimestamp as number);
     previousTimestamp = timestampInMs;
-    console.log("ani run", { elapsed, timestampInMs, delta });
+    // console.log("ani run", { elapsed, timestampInMs, delta });
     if (runAnimation) {
       window.requestAnimationFrame(step);
     }
@@ -20,7 +20,7 @@ useEffect(() => {
   window.requestAnimationFrame(step);
 
   return () => {
-    console.log("set animation to stop");
+    // console.log("set animation to stop");
     runAnimation = false;
   };
 }, []); // eslint-disable-line

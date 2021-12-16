@@ -9,4 +9,6 @@ every file in both directory mirror each others
 create symlink from next-server/\_share to back/share
 note that folder share in back must not exist yet
 
-> mklink /J "D:\code projects\projects\darthofcode\back\share" "D:\code projects\projects\darthofcode\next-server_share"
+```ja
+mklink /J "D:\code projects\projects\darthofcode\back\share" "D:\code projects\projects\darthofcode\next-server\_share"
+```

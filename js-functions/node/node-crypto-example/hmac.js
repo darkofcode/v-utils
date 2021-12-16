@@ -1,13 +1,13 @@
-const { createHmac } = require('crypto');
+const { createHmac } = require("crypto");
 
-const key = 'super-secret!';
-const message = 'boo 👻';
+const key = "super-secret!";
+const message = "boo 👻";
 
-const hmac = createHmac('sha256', key).update(message).digest('hex');
+const hmac = createHmac("sha256", key).update(message).digest("hex");
 
-console.log(hmac);
+//console.log(hmac);
 
-const key2 = 'other-password';
-const hmac2 = createHmac('sha256', key2).update(message).digest('hex');
+const key2 = "other-password";
+const hmac2 = createHmac("sha256", key2).update(message).digest("hex");
 
-console.log(hmac2);
+//console.log(hmac2);

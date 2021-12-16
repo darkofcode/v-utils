@@ -32,8 +32,8 @@ ex: remove folder name "test" and all it file
 
 remove everything except
 
-> rm -v !("fileName")
-> rm -v !("file1" | "file2")
+> rm -rf -v !("fileName")
+> rm -rf -v !("file1" | "file2")
 
 ## view as text file, short file
 
