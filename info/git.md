@@ -55,6 +55,7 @@
 > git submodule add --depth depth <remote_path> <local_path>
 ex: git submodule add --depth 1 https://github.com/darthofcode/v-utils submodules/v-utils
 
+
 // sparse-checkout clone only directory we need
 // cd to that sub module 'cd submodules/v-utils'
 > git sparse-checkout init // this will delete everything
@@ -62,4 +63,8 @@ ex: git submodule add --depth 1 https://github.com/darthofcode/v-utils submodule
 
 // pull submodule
 > git submodule update --remote
+
+// clone git with submodule
+git clone --recurse-submodules -j8 git://github.com/foo/bar.git
+
 ```

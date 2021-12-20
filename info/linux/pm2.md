@@ -11,6 +11,15 @@ we need to install pm2 globally
 > pm2 start directoryToRunNode --name setNameOfRunningProcess
 > pm2 start server.js
 
+## start next for development
+
+pm2 start npm --name "next" -- run dev
+
+## start next for production
+
+npm run build
+pm2 start npm --name "next" -- start
+
 ## view all running process
 
 > pm2 status

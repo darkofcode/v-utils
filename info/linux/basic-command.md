@@ -208,3 +208,48 @@ Swap: 0 0 0
 ## check os version
 
 > cat /etc/os-release
+
+## alias command line shortcut
+
+> alias
+> list all alias
+
+## create alias
+
+> alias ll="ls -al"
+> create alias ll in terminal
+> it will be deleted each open terminal
+> make sure no space between '=' sign
+
+## permanent alias
+
+write alias to file
+
+> vi ~/.aliasrc
+
+```
+# -------
+# Aliases
+# -------
+
+alias ll="ls -al"
+
+# Your public IP address
+alias ip="curl icanhazip.com"
+
+# List all directories in current directory in long list format
+alias ldir="ls -al | grep ^d"
+
+```
+
+## get terminal to load bash_profile
+
+> source ~/.aliasrc
+
+## if use zsh
+
+add 'source ~/.aliasrc' to '~/.zshrc' file
+
+## remove alias
+
+> unalias ll
