@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 48px);
+}
+
+.wrapper404 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  .f404 {
+    font-size: 14rem;
+  }
+  .divider {
+    background: red;
+    width: 14rem;
+    height: 4px;
+    position: relative;
+    top: -2rem;
+  }
+  .btnWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
