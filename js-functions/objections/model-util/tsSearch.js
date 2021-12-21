@@ -74,6 +74,9 @@ export default function tsSearch(Model = _Model) {
 }
 
 const getSearchObjKeys = (searchArr = []) => {
+  if (isEmpty(searchArr) || !Array.isArray(searchArr)) {
+    return { searchKey: "", otherKeys: [] };
+  }
   const searchKey = searchArr[0] || "";
   const otherKeys = searchArr.slice(1);
   return { searchKey, otherKeys };

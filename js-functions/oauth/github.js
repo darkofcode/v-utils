@@ -32,14 +32,12 @@ const getUserInfo = async (token) => {
       Authorization: token,
     },
   };
-  const gitUserObj = await Promise.all([
-    axios.get(`${gitBaseApi}/user`, config),
-    axios.get(`${gitBaseApi}/user/emails`, config),
-  ]);
-  const gitUser = gitUserObj[0].data;
-  const gitUserEmails = gitUserObj[1].data;
+  console.log("git config:\n ", config);
 
-  // console.log("github getUser:\n", gitUserEmails);
+  const gitUser = (await axios.get(`${gitBaseApi}/user`, config)).data;
+  const gitUserEmails = (await axios.get(`${gitBaseApi}/user/emails`, config)).data;
+
+  console.log("github getUser:\n", gitUserEmails);
 
   const user = {
     oid: get(gitUser, "id", "").toString(),
@@ -95,8 +93,6 @@ const getUserEmail = (gitUser, gitUserEmails) => {
 
   if (primaryEmail) return primaryEmail;
 
-  const userEmails = gitUserEmails.filter(
-    (user) => !user.email.includes("noreply.github.com")
-  );
-  return userEmails[0].email;
+  const userEmails = gitUserEmails.filter((user) => !user.email.includes("noreply.github.com"));
+  return get(userEmails, "0.email", "");
 };
