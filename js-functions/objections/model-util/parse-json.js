@@ -45,6 +45,7 @@ export default function parseJson(Model = _Model) {
 }
 
 const getFields = (self) => {
+  if (isEmpty(self)) return [];
   const fields = !isEmpty(self.jsonColumns) ? self.jsonColumns : self.jsonFields;
   return Array.isArray(fields) ? fields : [];
 };

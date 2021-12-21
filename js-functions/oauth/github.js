@@ -94,5 +94,5 @@ const getUserEmail = (gitUser, gitUserEmails) => {
   if (primaryEmail) return primaryEmail;
 
   const userEmails = gitUserEmails.filter((user) => !user.email.includes("noreply.github.com"));
-  return userEmails[0].email;
+  return get(userEmails, "0.email", "");
 };
