@@ -63,7 +63,7 @@ logs location '/home/[serverName]/.pm2/logs
 
 > pm2 logs
 > log all process
-
+>
 > pm2 logs 0
 > log specific process
 
