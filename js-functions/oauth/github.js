@@ -32,12 +32,12 @@ const getUserInfo = async (token) => {
       Authorization: token,
     },
   };
-  console.log("git config:\n ", config);
+  // console.log("git config:\n ", config);
 
   const gitUser = (await axios.get(`${gitBaseApi}/user`, config)).data;
   const gitUserEmails = (await axios.get(`${gitBaseApi}/user/emails`, config)).data;
 
-  console.log("github getUser:\n", gitUserEmails);
+  // console.log("github getUser:\n", gitUserEmails);
 
   const user = {
     oid: get(gitUser, "id", "").toString(),

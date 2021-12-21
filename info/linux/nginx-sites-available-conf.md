@@ -25,6 +25,9 @@ server {
       proxy_set_header Connection 'upgrade';
       proxy_set_header Host $host;
       proxy_cache_bypass $http_upgrade;
+      # set-ip-client, tell nginx to forward ip address from client otherwise
+      # will get local ip address
+      proxy_set_header X-Forwarded-For $remote_addr;
 
   }
 

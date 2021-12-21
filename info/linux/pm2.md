@@ -58,15 +58,19 @@ pm2 will print command of what to do next
 
 > pm2 logs processId_or_name
 
-logs location '/home/[serverName]/.pm2/logs
+logs location '~/.pm2/logs
 /home/ubuntu/.pm2/logs
 
 > pm2 logs
 > log all process
-
+>
 > pm2 logs 0
 > log specific process
 
 ## pm2 clear logs
 
 > pm2 flush
+
+## pm2 monitor process
+
+> pm2 monit
