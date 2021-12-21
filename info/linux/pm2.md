@@ -27,7 +27,14 @@ pm2 start npm --name "next" -- start
 ## stop process
 
 > pm2 stop processNameOrProcessId
-> pm2 stop 0
+
+stop process 0 and 1
+
+> pm2 stop 0 1
+
+## pm2 restart process
+
+> pm2 restart 0 1
 
 ## set pm2 to auto startup
 
@@ -46,3 +53,20 @@ pm2 will print command of what to do next
 - save all running process
 
 > pm2 save
+
+## pm2 logs
+
+> pm2 logs processId_or_name
+
+logs location '/home/[serverName]/.pm2/logs
+/home/ubuntu/.pm2/logs
+
+> pm2 logs
+> log all process
+
+> pm2 logs 0
+> log specific process
+
+## pm2 clear logs
+
+> pm2 flush
