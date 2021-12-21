@@ -17,6 +17,10 @@ export default function setSeqId(Model) {
       return "";
     }
 
+    static async getNextId() {
+      return await _getNextId(this);
+    }
+
     async $beforeInsert(context) {
       await super.$beforeInsert(context);
 
@@ -26,7 +30,7 @@ export default function setSeqId(Model) {
         // check if id value not existed
         // this is context aka req.body
         if (!this[idKey]) {
-          const nextId = await getNextId(this.constructor);
+          const nextId = await _getNextId(this.constructor);
           this[idKey] = nextId;
         }
       }
@@ -34,7 +38,7 @@ export default function setSeqId(Model) {
   };
 }
 
-const getNextId = async (self) => {
+const _getNextId = async (self) => {
   const [seqId, idKey, pre] = getSeqId(self);
   return await getNextValue(seqId, pre);
 };
