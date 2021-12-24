@@ -5,7 +5,7 @@ import { unpick } from "../../object/unpick";
 /**
  *
  * @param {typeof _Model} Model
- * @returns
+ * @returns {typeof _Model}
  */
 export default function hidden(Model = _Model) {
   return class Hidden extends Model {

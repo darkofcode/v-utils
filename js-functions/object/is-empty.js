@@ -7,7 +7,7 @@ import _isEmpty from "lodash/isEmpty";
  */
 const isEmpty = (something) => {
   if (typeof something === "number") {
-    return !!something;
+    return something === 0;
   }
   return _isEmpty(something);
 };

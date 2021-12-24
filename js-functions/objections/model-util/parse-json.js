@@ -4,7 +4,7 @@ import { isEmpty } from "../../object/is-empty";
 /**
  *
  * @param {typeof _Model} Model
- * @returns
+ * @returns {typeof _Model}
  */
 export default function parseJson(Model = _Model) {
   // you can override the hashid properties on a per-model basis using model properties

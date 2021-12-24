@@ -4,7 +4,7 @@ import { Model as _Model } from "objection";
 /**
  *
  * @param {typeof _Model} Model
- * @returns
+ * @returns {typeof _Model & {getNextId:()=>Promise<string>}}
  */
 export default function setSeqId(Model) {
   return class SetSeqId extends Model {
@@ -13,9 +13,7 @@ export default function setSeqId(Model) {
     // default idKey = "id"
     // ex: seqId = "acc_payable_id_seq";
     // ex: seqId = []
-    static seqId() {
-      return "";
-    }
+    static seqId = "";
 
     static async getNextId() {
       return await _getNextId(this);
