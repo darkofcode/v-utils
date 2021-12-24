@@ -6,7 +6,7 @@ import { getSearchJoinValue } from "../joinSearch";
 /**
  *
  * @param {typeof _Model} Model
- * @returns 
+ * @returns {typeof _Model}
  * @example
 class Post extends tsSearch(Model) {
   static tsSearchColumns = ['search','title','description'];
@@ -37,7 +37,6 @@ search => tsVectorValueOf('new title');
 
  */
 export default function tsSearch(Model = _Model) {
-  // deep join search value
   return class TsSearch extends Model {
     // tsSearchColumns = ['search','title','description']
     static tsSearchColumns() {

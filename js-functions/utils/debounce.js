@@ -1,5 +1,5 @@
 /**
- *
+ * this function only fire at the end of one
  * @param {Function} fn
  * @param {number} delay
  * @returns

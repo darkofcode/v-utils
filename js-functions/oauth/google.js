@@ -1,6 +1,7 @@
-import axios from "axios";
+// import axios from "axios";
 import { get } from "../object/get";
 import { OAuth2Client } from "google-auth-library";
+import fetch from "node-fetch";
 
 /**
  *
@@ -16,23 +17,13 @@ import { OAuth2Client } from "google-auth-library";
  * @param {string} redirect_uri
  * @returns {{oid:string,photo_url:string,name:string,email:string}}
  */
-export async function getGoogleUser(
-  googleRespondCode,
-  clientId,
-  clientSecrete,
-  redirect_uri
-) {
+export async function getGoogleUser(googleRespondCode, clientId, clientSecrete, redirect_uri) {
   const code = googleRespondCode || "";
   if (!code) {
     return {};
   }
 
-  const gitAccessToken = await getAccessToken(
-    code,
-    clientId,
-    clientSecrete,
-    redirect_uri
-  );
+  const gitAccessToken = await getAccessToken(code, clientId, clientSecrete, redirect_uri);
   const user = await getUserByIdToken(gitAccessToken.id_token, clientId);
 
   return user;
@@ -48,11 +39,14 @@ const getUserInfoByEndPoint = async (token) => {
   const config = {
     headers: {
       Authorization: token,
+      "Content-Type": "application/json",
+      Accept: "application/json",
     },
   };
 
-  const authUser = (await axios.get(baseApi, config)).data;
+  // const authUser = (await axios.get(baseApi, config)).data;
 
+  const authUser = await (await fetch(baseApi, config)).json();
   // console.log(`from get google user`, {
   //   token,
   //   authUser,
@@ -115,11 +109,19 @@ const getAccessToken = async (code, clientId, clientSecrete, redirect_uri) => {
 
   const accessTokenUrl = `https://oauth2.googleapis.com/token`;
 
-  const resTokenObj = (
-    await axios.post(accessTokenUrl, urlParams, {
-      headers: { Accept: "application/json" },
+  // const resTokenObj = (
+  //   await axios.post(accessTokenUrl, urlParams, {
+  //     headers: { Accept: "application/json" },
+  //   })
+  // ).data;
+
+  const resTokenObj = await (
+    await fetch(accessTokenUrl, {
+      method: "post",
+      body: JSON.stringify(urlParams),
+      headers: { Accept: "application/json", Accept: "application/json" },
     })
-  ).data;
+  ).json();
   // console.log(`from access token:\n`, resTokenObj);
   return resTokenObj;
 };

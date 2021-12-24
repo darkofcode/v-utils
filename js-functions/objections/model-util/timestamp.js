@@ -3,13 +3,9 @@ import { Model as _Model } from "objection";
 /**
  *
  * @param {{Model: typeof _Model,beforeInsert:boolean,beforeUpdate:boolean}} _param
- * @returns
+ * @returns {typeof _Model}
  */
-export default function timeStamps({
-  Model = _Model,
-  beforeInsert = true,
-  beforeUpdate = true,
-}) {
+export default function timeStamps({ Model = _Model, beforeInsert = true, beforeUpdate = true }) {
   return class TimeStamp extends Model {
     async $beforeInsert(context) {
       await super.$beforeInsert(context);

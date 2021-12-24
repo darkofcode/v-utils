@@ -16,7 +16,7 @@ const encodeUrlParams = (p) => {
 /**
  *
  * @param {string} str
- * @return {{[key:string]:string}|{}}
+ * @return {{[key:string]:string}}
  *
  * @example
  * decodeUrlParams('a=1&b=two%20three&myName=faser%20what%20%24')

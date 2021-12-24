@@ -10,32 +10,22 @@ const { createCipheriv, createDecipheriv } = require("crypto");
  */
 const getEncrypt = (str, secrete, iv, inputEncoding = "utf8", outputEncoding = "hex") => {
   const cipher = createCipheriv("aes256", secrete.slice(0, 32), iv.slice(0, 16));
-  const encryptedMessage =
-    cipher.update(str, inputEncoding, outputEncoding) + cipher.final(outputEncoding);
+  const encryptedMessage = cipher.update(str, inputEncoding, outputEncoding) + cipher.final(outputEncoding);
   return encryptedMessage;
 };
 
 /**
  *
- * @param {string} str
+ * @param {string} encrypted
  * @param {string} secrete string at least 32 chars
  * @param {string} iv string at least 16 chars
  * @param {import("crypto").Encoding} inputEncoding string at least 16 chars
  * @param {import("crypto").Encoding} outputEncoding string at least 16 chars
  */
-const getDecrypt = (
-  encrypted,
-  secrete,
-  iv,
-  inputEncoding = "hex",
-  outputEncoding = "utf8"
-) => {
+const getDecrypt = (encrypted, secrete, iv, inputEncoding = "hex", outputEncoding = "utf8") => {
   try {
     const decipher = createDecipheriv("aes256", secrete.slice(0, 32), iv.slice(0, 16));
-    return (
-      decipher.update(encrypted, inputEncoding, outputEncoding) +
-      decipher.final(outputEncoding)
-    );
+    return decipher.update(encrypted, inputEncoding, outputEncoding) + decipher.final(outputEncoding);
   } catch (error) {
     return "";
   }

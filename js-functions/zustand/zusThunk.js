@@ -3,8 +3,9 @@
  * @param {set} set 
  * @param {(any)=>Promise<void>} fn 
  * @param {string|string[]|undefined} loading
+ * @param {boolean?} logError
  * @example 
-    thSignIn: zusThunk(async (googlePayload) => {
+    thSignIn: zusThunk(async (set,googlePayload) => {
         // set({ loading: true }); // no need to add
         const user = (await axios.post("/login/google", googlePayload)).data as tUser;
         set({ user });
@@ -14,7 +15,7 @@
  * 
  * @returns {VoidFunction}
  */
-export const zusThunk = (set, fn, loading = "loading") =>
+export const zusThunk = (set, fn, loading = "loading", logError = true) =>
   function asyncFunction(...args) {
     return Promise.resolve(
       (async function () {
@@ -32,7 +33,9 @@ export const zusThunk = (set, fn, loading = "loading") =>
       for (let loading of loadings) {
         set({ [loading]: false });
       }
-      // console.log("from zustand error handler:\n", err);
+      if (logError) {
+        console.log("from zustand error handler:\n", err);
+      }
     });
   };
 

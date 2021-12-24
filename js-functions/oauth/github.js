@@ -1,5 +1,5 @@
-import axios from "axios";
 import { get } from "../object/get";
+import fetch from "node-fetch";
 
 /**
  *
@@ -13,7 +13,7 @@ export async function getGithubUser(gitRespondCode, clientId, clientSecrete) {
   if (!code) {
     return {};
   }
-
+  // console.log(`from get git user:\n`, { gitRespondCode, clientId, clientSecrete });
   const gitAccessToken = await getAccessToken(code, clientId, clientSecrete);
   const user = await getUserInfo(gitAccessToken);
 
@@ -30,13 +30,17 @@ const getUserInfo = async (token) => {
   const config = {
     headers: {
       Authorization: token,
+      "Content-Type": "application/json",
+      Accept: "application/json",
     },
   };
   // console.log("git config:\n ", config);
 
-  const gitUser = (await axios.get(`${gitBaseApi}/user`, config)).data;
-  const gitUserEmails = (await axios.get(`${gitBaseApi}/user/emails`, config)).data;
+  // const gitUser = (await axios.get(`${gitBaseApi}/user`, config)).data;
+  // const gitUserEmails = (await axios.get(`${gitBaseApi}/user/emails`, config)).data;
 
+  const gitUser = await (await fetch(`${gitBaseApi}/user`, config)).json();
+  const gitUserEmails = await (await fetch(`${gitBaseApi}/user/emails`, config)).json();
   // console.log("github getUser:\n", gitUserEmails);
 
   const user = {
@@ -68,11 +72,21 @@ const getAccessToken = async (code, clientId, clientSecrete) => {
 
   const gitAccessTokenUrl = `https://github.com/login/oauth/access_token`;
 
-  const gitTokenObj = (
-    await axios.post(gitAccessTokenUrl, urlParams, {
-      headers: { Accept: "application/json" },
+  // const gitTokenObj = (
+  //   await axios.post(gitAccessTokenUrl, urlParams, {
+  //     headers: { Accept: "application/json" },
+  //   })
+  // ).data;
+
+  const gitTokenObj = await (
+    await fetch(gitAccessTokenUrl, {
+      method: "post",
+      body: JSON.stringify(urlParams),
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
     })
-  ).data;
+  ).json();
+
+  // console.log(`from git token:\n`, gitTokenObj);
 
   const gitAccessToken = gitTokenObj.access_token || "";
   const bearer = gitTokenObj.token_type || "";

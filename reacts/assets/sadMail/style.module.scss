@@ -1,0 +1,17 @@
+.tear1 {
+  opacity: 0;
+  animation: tear1 1s ease-in-out alternate infinite;
+}
+.tear2 {
+  opacity: 0;
+  animation: tear1 1s ease-in-out alternate 1s infinite;
+}
+
+@keyframes tear1 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
