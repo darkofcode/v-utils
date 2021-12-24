@@ -37,9 +37,7 @@ exports.up = async function (knex) {
 };
 
 exports.down = async function (knex) {
-  await knex.schema
-    .dropTableIfExists("user_company")
-    .raw("drop sequence if exists user_company_id_seq");
+  await knex.schema.dropTableIfExists("user_company").raw("drop sequence if exists user_company_id_seq");
 };
 ```
 
@@ -83,9 +81,7 @@ holidays[0].$toJson() will work if not empty
 ### eager join withGraphFetched
 
 ```javascript
-const companyQuery = await Company.query()
-  .findById(company.id)
-  .withGraphFetched("[users,bill,setting]"); //.withGraphFetched("users")
+const companyQuery = await Company.query().findById(company.id).withGraphFetched("[users,bill,setting]"); //.withGraphFetched("users")
 ```
 
 ### eager join withGraphJoined
@@ -307,4 +303,10 @@ tbl.decimal("price", 14, 2).notNullable().defaultTo(0);
 await knex.raw(` 
     ALTER TABLE acc_payable ADD CONSTRAINT check_left_payable check ("left" >= 0)
     `);
+```
+
+### add column raw
+
+```javascript
+ALTER TABLE "counter" ADD "coupon" varchar(255);
 ```
