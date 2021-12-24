@@ -81,7 +81,6 @@ const setUpNginxIp = async () => {
       }
     });
   } catch (error) {
-    // console.log(`from error setup:\n`, oriContent);
     await removeOri();
 
     fs.writeFile(CLOUDFLARE_FILE_PATH, oriContent, (err) => {

@@ -13,9 +13,4 @@ const min = (arr, iterationFnc) => {
   return m.toString();
 };
 
-// console.log(min([1, 2, 3, 12, 4]));
-// console.log(min([{ id: 1 }, { id: 2 }, { id: 4 }, { id: -12 }], (o) => o.id));
-// console.log(min([{ id: 1 }, { id: 2 }, { id: -4 }, { id: -12 }], (o) => o.id));
-// console.log(min([{ id: -1 }, { id: -2 }, { id: -4 }, { id: -12 }], (o) => o.id));
-
 export { min };

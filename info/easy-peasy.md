@@ -52,7 +52,6 @@ const tcThunk = (fn) =>
   thunk((actions, payload, helper) => {
     return Promise.resolve(fn(actions, payload, helper)).catch((err) => {
       actions.setState(["loading", false]);
-      // console.log("from easy peasy thunk error handler:\n", err);
     });
   });
 

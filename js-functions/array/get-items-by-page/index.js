@@ -24,12 +24,4 @@ const getItemsByPage = (arr, page, maxItem, isReverse = false) => {
   }
 };
 
-// const t = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-// console.log(`from t0: `, getItemsByPage(t, 0, 3));
-// console.log(`from t1: `, getItemsByPage(t, 1, 3));
-// console.log(`from t2: `, getItemsByPage(t, 2, 3));
-// console.log(`from t3: `, getItemsByPage(t, 3, 3));
-// console.log(`from t4: `, getItemsByPage(t, 4, 3));
-// console.log(`from t5: `, getItemsByPage(t, 5, 3));
-
 export { getItemsByPage };

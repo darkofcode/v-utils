@@ -13,7 +13,6 @@ const r = combineBy(col1, col2, (o) => o.id);
  *
  */
 const combineBy = (mainCollection, secondCollection, compareValueFn) => {
-  // console.log(`from combine fnc`, { mainCollection, secondCollection });
   let testObj = {};
   let r = [];
 
@@ -47,5 +46,4 @@ const combineBy = (mainCollection, secondCollection, compareValueFn) => {
 //   { id: 9 },
 // ];
 // const r = combineBy(col1, col2, (o) => o.id);
-// console.log(`from test`, r);
 export { combineBy };

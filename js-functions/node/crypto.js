@@ -35,5 +35,3 @@ function compareHashSalt(password, input) {
 const str = "some text";
 const t1 = getHashSalt(str, "hex");
 const t2 = getHashSalt(str, "hex");
-
-console.log(`from test: `, { t1, t2 });

@@ -182,7 +182,6 @@ const connection = () => {
     },
   });
   Model.knex(knex);
-  // console.log(`from knex connection`);
   return knex;
 };
 
@@ -194,7 +193,6 @@ const backup = async () => {
     await clearOldBackup(45);
     await s3.upload(zipDataPath);
   } catch (err) {
-    // console.log(`from error:\n`, err);
     const _knex = connection();
     await AdminErrors.query().insert(getErrorData(err));
     _knex.destroy();
@@ -204,12 +202,10 @@ const backup = async () => {
 };
 
 backup().catch((err) => {
-  // console.log(`from error:\n`, err);
 });
 
 // (function () {
 //   const v = process.platform;
-//   console.log(`from node`, { v });
 // })();
 
 ```

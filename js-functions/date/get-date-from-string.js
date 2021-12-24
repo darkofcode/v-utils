@@ -35,7 +35,6 @@ const getDateFromString = (str, dateFormat) => {
   const format = formatArr.join("-");
   const results = str.match(dateReg);
   if (!results) return [];
-  // console.log({ results, dateReg });
 
   return results.map((r) => {
     const dateStr = r.replace(new RegExp(_sep, "g"), "-");
@@ -73,10 +72,7 @@ const getDate = (dateStr, dateFormat) => {
   dateArr[yi] = y;
   const date = dateArr.join("-");
   const format = formatArr.join("-");
-  // console.log({ date, format, y, dateArr, dateStr });
 
   return parseDate(date, format, new Date());
 };
 export { getDateFromString };
-
-// console.log(getDateFromString("faser 21 01/01 21-12-19", "mm-yy-dd"));

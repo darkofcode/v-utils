@@ -25,49 +25,5 @@ const nodeSchema = yupObj().shape({
   path: yupStr().min(3).max(370).required("path is required"),
   // children: yup.array().of(nodeSchema),
 });
-// const url = "path";
-// const data = [
-//   {
-//     value: "Bo Miao",
-//     title: "department manager",
-//     path: url,
-//     id: "21123",
-//     children: [
-//       { value: "Li Jing", title: "senior engineer", path: url, id: "3531" },
-//       {
-//         value: "Li Xin",
-//         title: "senior engineer",
-//         path: url,
-//         id: "42112",
-//         children: [
-//           { value: "To To", title: "engineer", path: url, id: "54" },
-//           { value: "Fei Fei", title: "engineer", path: url, id: "6412" },
-//           { value: "Xuan Xuan", title: "engineer", path: url, id: "7341" },
-//         ],
-//       },
-//     ],
-//   },
-//   {
-//     value: "Su Miao",
-//     title: "department manager",
-//     path: url,
-//     id: "123",
-//   },
-//   {
-//     value: "Su Miao",
-//     title: "department manager",
-//     path: url,
-//     id: "123451",
-//   },
-// ];
 
-// const test = async () => {
-//   try {
-//     const v = await orgValidator(data);
-//     console.log(`from validator org`, v);
-//   } catch (error) {
-//     console.log(`from error test`, error);
-//   }
-// };
-// test();
 module.exports = orgValidator;

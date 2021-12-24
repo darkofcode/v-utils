@@ -203,8 +203,6 @@ const getUserObject = (users, userUniqKey, userRowNameKey) => {
 //   userRowNameKey: "name",
 // });
 
-// console.log(`from component`, { r, dataArray });
-
 /*
 absence: []
 approved_absence: []
@@ -366,4 +364,3 @@ export { transformData, toDataArray, transposeDataArray, getAllDataArray };
 //   dateHeader:"Date",
 //   headerName:"Attendance"
 // });
-// console.log(allData);

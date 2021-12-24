@@ -25,13 +25,4 @@ const finishRate = (collection, iterator) => {
   return round(sum / flatProgress.length);
 };
 
-// const r = finishRate(
-//   [
-//     { task: "a", done: false },
-//     { task: "a", done: true },
-//     { task: "a", done: true },
-//   ],
-//   (o) => (o.done ? 1 : 0)
-// );
-// console.log(`from finish rate`, r);
 export { finishRate };

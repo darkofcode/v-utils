@@ -21,6 +21,4 @@ const getRandomArrayOfArray = (arr, min, max) => {
   return rndArr;
 };
 
-// const a = getRandomArrayOfArray([1, 2, 3, 4, 5], 1, 3);
-// console.log(`from `, a);
 export { getRandomArrayOfArray };

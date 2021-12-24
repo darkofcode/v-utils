@@ -24,18 +24,7 @@ const binarySearch = (searchNumber, sortedArrayNumber) => {
       lowerIndex = middleIndex + 1;
     }
   }
-  // console.log({ counter });
   return r;
 };
 
 export { binarySearch };
-
-// const getArr = () => {
-//   let arr = [];
-//   for (let i = 0; i <= 1e6; i++) {
-//     arr.push(i);
-//   }
-//   return arr;
-// };
-// const test = getArr();
-// console.log(`from binary search`, binarySearch(99999, test));

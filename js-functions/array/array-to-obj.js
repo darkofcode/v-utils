@@ -47,5 +47,4 @@ const arrayToObj = (arr, keyIterator, valueIterator, isSum = false) => {
 //   (o) => o.id,
 //   (o) => o.v
 // );
-// console.log(`from test`, r);
 export { arrayToObj };

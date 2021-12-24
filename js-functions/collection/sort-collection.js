@@ -82,4 +82,3 @@ export { sortCollection };
 // const d2 = sortCollection("date", data, false);
 // const d3 = sortCollection("time", [], false);
 // const d4 = sortCollection("id", [], false, "number");
-// console.log(`from `, { d, d2, d3, d4 });

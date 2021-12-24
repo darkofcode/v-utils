@@ -39,4 +39,3 @@ export { transposeDataArray };
 // ];
 // const t = transposeDataArray(d);
 // const tr = transposeDataArray(t);
-// console.log(console.log({ t, tr }));

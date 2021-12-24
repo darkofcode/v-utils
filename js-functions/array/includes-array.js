@@ -41,6 +41,3 @@ export { includesArray };
 //   { id: 3, v: 3 },
 //   { id: 4, v: 4 },
 // ];
-
-// console.log(includesArray([1, 2, 3, 4, 6], [2, 6, 7]));
-// console.log(includesArray(m2, a, (o) => o.id));
