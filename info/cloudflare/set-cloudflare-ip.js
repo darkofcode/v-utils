@@ -1,16 +1,17 @@
-import fetch from "node-fetch";
+const axiosBack = require("axios");
 const fs = require("fs");
 const path = require("path");
 const util = require("util");
 const exec = util.promisify(require("child_process").exec);
 
+const axios = axiosBack.create({});
 /**
  *
  * @param {4|6} version
  */
 const getCPip = async (version) => {
   // const ip = (await axios.get(`https://www.cloudflare.com/ips-v${version}`)).data;
-  const ip = await (await fetch(`https://www.cloudflare.com/ips-v${version}`)).json();
+  const ip = (await axios(`https://www.cloudflare.com/ips-v${version}`)).data;
   return ip
     .replace(/[\r\n\v\t\b\f]/g, "\n")
     .split("\n")
