@@ -29,7 +29,7 @@ let axiosInterceptResponse = null;
  * strip away (await axios.get(url)).data ->
  * (await axios.get(url)) will return whatever
  * the server send
- * @param {{state?:string,token?:string,baseApi?:string,onSuccess?:(msg:string)=>Void,onError?:(msg:string)=>Void}} _props
+ * @param {{timeout?:number,state?:string,token?:string,baseApi?:string,onSuccess?:(msg:string)=>Void,onError?:(msg:string)=>Void}} _props
  * @returns
  */
 export default function axiosWrapper(_props) {
@@ -37,6 +37,7 @@ export default function axiosWrapper(_props) {
   const state = get(props, "state", "uvAxios");
   const token = get(props, "token", "");
   const baseApi = get(props, "baseApi", "");
+  const timeout = get(props, "timeout", 5000);
   const _onSuccess = get(props, "onSuccess", () => {});
   const _onError = get(props, "onError", () => {});
 
@@ -86,7 +87,7 @@ export default function axiosWrapper(_props) {
         "Content-Type": getContentType(config),
         "Access-Control-Allow-Origin": "*",
       };
-      config.timeout = 5000;
+      config.timeout = timeout;
 
       config.transformRequest = [
         (data, headers) => {
