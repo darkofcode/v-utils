@@ -31,7 +31,8 @@ where bash script in /home/zmenka/kinodes/back/admin/run-backup.sh
 
 
 ###### Sample crontab ######
-
+# every 5 minutes
+*/5 * * * *
 # backup with bash script & node js
 # everyday at 2am
 0 2 * * * /bin/sh /home/zmenka/kinodes/back/admin/run-backup.sh
