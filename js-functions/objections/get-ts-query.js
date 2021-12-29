@@ -55,7 +55,16 @@ const getObjectionRawTsSearch = async (searchColumn, search) => {
  */
 const getTsQueryStrict = async (text) => {
   const query = await runSql("to_tsquery", text);
-  const q = query.replace(/[\'\"]/gi, "");
+  let q = query.replace(/[\'\"]/gi, "");
+  q = q
+    .split(" ")
+    .join("")
+    .split("|")
+    .join(" | ")
+    .split("!")
+    .join(" ! ") //
+    .split("&")
+    .join(" & "); //
 
   return q;
 };
