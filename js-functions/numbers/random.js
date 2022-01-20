@@ -8,6 +8,7 @@
  * // r = number between 1 and 7; 1 or 7 includes
  */
 function getRandomInteger(min, max) {
+  // // min and max included
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
