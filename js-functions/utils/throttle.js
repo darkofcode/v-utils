@@ -11,7 +11,9 @@
  *
  */
 
-function throttle(fn, delay = 250) {
+function throttle(fn, delay) {
+  if (delay === undefined) delay = 250;
+  // console.log(`from th:\n`, delay);
   let lastTime = 0;
   return function (...args) {
     const now = new Date().getTime();
