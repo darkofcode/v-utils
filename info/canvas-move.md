@@ -28,44 +28,46 @@ let nextPos = getNextPosition(this.center.x, this.center.y, move[this.elapsed % 
 
 ## control canvas frame rate
 ```javascript
-let stop = false;
-let frameCount = 0;
+let frame = 0;
 
-let fps, fpsInterval, startTime, now, then, elapsed;
+let fpsInterval, startTime, now, then, elapsed;
 
-// initialize the timer variables and start the animation
-
-function startAnimating(fps) {
+/**
+ *
+ * @param {number} fps
+ * @param {({frame:number,elapsed:number,startTime:number})=>VoidFunction} onAnimate
+ */
+export function runAnimate(fps, onAnimate) {
   fpsInterval = 1000 / fps;
   then = Date.now();
   startTime = then;
-  animate();
+  animate(onAnimate);
 }
 
-function animate() {
+function animate(onAnimate) {
   // request another frame
-
-  requestAnimationFrame(animate);
+  requestAnimationFrame(() => animate(onAnimate));
 
   // calc elapsed time since last loop
-
   now = Date.now();
   elapsed = now - then;
 
   // if enough time has elapsed, draw the next frame
-
   if (elapsed > fpsInterval) {
     // Get ready for next frame by setting then=now, but also adjust for your
     // specified fpsInterval not being a multiple of RAF's interval (16.7ms)
     then = now - (elapsed % fpsInterval);
+    frame++;
 
     // drawing on canvas here
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    updatePlayer(state);
-    updateBoxes(state);
+    if (!onAnimate) return;
+    onAnimate({
+      frame,
+      elapsed: Date.now() - startTime,
+      startTime,
+    });
   }
 }
-// init game 60 per second
-startAnimating(60);
+
 
 ```
