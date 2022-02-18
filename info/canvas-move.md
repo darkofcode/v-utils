@@ -45,9 +45,7 @@ export function runAnimate(fps, onAnimate) {
 }
 
 function animate(onAnimate) {
-  // request another frame
-  requestAnimationFrame(() => animate(onAnimate));
-
+  
   // calc elapsed time since last loop
   now = Date.now();
   elapsed = now - then;
@@ -67,6 +65,9 @@ function animate(onAnimate) {
       startTime,
     });
   }
+  
+  // request another frame
+  requestAnimationFrame(() => animate(onAnimate));
 }
 
 
