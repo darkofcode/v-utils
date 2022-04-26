@@ -27,6 +27,31 @@ let nextPos = getNextPosition(this.center.x, this.center.y, move[this.elapsed % 
 ```
 
 ## control canvas frame rate
+
+```javascript
+let frameNo = 0;
+const bigBang = Date.now();
+let start = Date.now();
+
+/**
+ *
+ * @param {number} frameNoPerSecond
+ * @param {()=>Void} onAnimate
+ */
+export function runAnimation(frameNoPerSecond, onAnimate) {
+  const eachFrameTime = 1000 / frameNoPerSecond;
+  if (Date.now() - start >= eachFrameTime) {
+    frameNo++;
+    start = Date.now();
+    const elapse = Date.now() - bigBang;
+    onAnimate(frameNo, elapse, eachFrameTime);
+  }
+  window.requestAnimationFrame(() => runAnimation(frameNoPerSecond, onAnimate));
+}
+```
+
+## control canvas frame rate 2
+
 ```javascript
 let frame = 0;
 
@@ -45,7 +70,6 @@ export function runAnimate(fps, onAnimate) {
 }
 
 function animate(onAnimate) {
-  
   // calc elapsed time since last loop
   now = Date.now();
   elapsed = now - then;
@@ -65,10 +89,8 @@ function animate(onAnimate) {
       startTime,
     });
   }
-  
+
   // request another frame
   requestAnimationFrame(() => animate(onAnimate));
 }
-
-
 ```

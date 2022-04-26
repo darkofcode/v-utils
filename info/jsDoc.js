@@ -36,14 +36,13 @@
  * @typedef {Object} suspiciousInput
  * @property {string} category
  * @property {string[]} inputs
- * 
+ *
  */
 
 /**
  * @type {suspiciousInput}
  */
-const sus ;
-
+const sus = {};
 
 /**
  * A number, or a string containing a number.
@@ -54,14 +53,14 @@ const sus ;
  * Set the magic number.
  * @param {NumberLike} x - The magic number.
  */
- function setMagicNumber(x) {}
+function setMagicNumber(x) {}
 
 /**
  * Enum for tri-state values.
  * @readonly
  * @enum {number}
  */
- var triState = {
+var triState = {
   /** The true value */
   TRUE: 1,
   FALSE: -1,
@@ -84,26 +83,22 @@ const addFn = (a, b) => {
  *
  * @param {Array.<number>} arrayArgs
  */
-const addFn = (arrayArgs) => {
+const addFn2 = (arrayArgs) => {
   return arrayArgs.reduce((pre, cur) => pre + cur, 0);
 };
 
-
-
 /**
- * 
+ *
  * @typedef {import('../string/suspicious-inputs.js').sus} sus
  *
  */
 
-
 /**
  * @type {import('objection').Model}
  */
- class Post extends baseModel() {
+class Post extends baseModel() {
   static tableName = "post";
   static seqId = "post_id_seq";
   static tsSearchColumns = ["search", "title", "description", "platform_name"];
   static hidden = ["search"];
-  
 }
