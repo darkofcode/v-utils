@@ -23,7 +23,6 @@ export function getAdjustPositionByLine(nowPosition, nextPosition, restrictLine,
 
   let x = nowPosition.x + lr * Math.cos(ballDirection);
   let y = nowPosition.y + lr * Math.sin(ballDirection);
-  if (x <= config.ballMinSpeed) x = 0;
-  if (y <= config.ballMinSpeed) y = 0;
+
   return { x, y };
 }
