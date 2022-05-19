@@ -1,19 +1,23 @@
-let frameNo = 0;
-const bigBang = Date.now();
-let start = Date.now();
+
+let bigBang= Date.now();
+let frameStart = 0;
+let frame=0;
+
 
 /**
- *
- * @param {number} frameNoPerSecond
- * @param {()=>Void} onAnimate
+ * 
+ * @param {number} framePerSecond 
+ * @param {(frame:number,gameTime:number,eachFrameTime:number)=>VoidFunction} onAnimate 
  */
-export function runAnimation(frameNoPerSecond, onAnimate) {
-  const eachFrameTime = 1000 / frameNoPerSecond;
-  if (Date.now() - start >= eachFrameTime) {
-    frameNo++;
-    start = Date.now();
-    const elapse = Date.now() - bigBang;
-    onAnimate(frameNo, elapse, eachFrameTime);
+export function runAnimation(framePerSecond,onAnimate){
+  const eachFrameTime = 1000 / framePerSecond;
+
+  if(Date.now()>=eachFrameTime+frameStart){
+    frameStart=Date.now();
+    frame++;
+    const gameTime = Date.now()-bigBang;
+    onAnimate(frame,gameTime,eachFrameTime)
   }
-  window.requestAnimationFrame(() => runAnimation(frameNoPerSecond, onAnimate));
+
+  window.requestAnimationFrame(()=>runAnimation(framePerSecond,onAnimate))
 }
