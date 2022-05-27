@@ -1,26 +1,30 @@
+
 /**
- * this function only fire at regular pace
- * @param {Function} fn
- * @param {number} delay
- * @returns
- *
+ * this function will run first last and 
+ * throttle in the middle with limit interval
+ * @param {Function} callback 
+ * @param {number} limit 
+ * @returns 
  * @example
- *
- * const handleScroll = throttle((v)=>setValue(v),250);
- *
- *
+ * 
+ * const handleMove = throttle((e)=>{'do s.th'},150);
+ * elm.addEventListener('mousemove',handleMove)
  */
 
-function throttle(fn, delay) {
-  if (delay === undefined) delay = 250;
-  // console.log(`from th:\n`, delay);
-  let lastTime = 0;
+export function throttle(callback, limit) {
+  let nextExeTime = 0;
+  let timeOut;
   return function (...args) {
-    const now = new Date().getTime();
-    if (now - lastTime < delay) return;
-    lastTime = now;
-    fn(...args);
+    if (timeOut) clearTimeout(timeOut);
+
+    if (Date.now() - nextExeTime >= limit) {
+      nextExeTime = Date.now() + limit;
+      callback(...args);
+    } else {
+      timeOut = setTimeout(() => {
+        callback(...args);
+      }, limit);
+    }
   };
 }
 
-export { throttle };
